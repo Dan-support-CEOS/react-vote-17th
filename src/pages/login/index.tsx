@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import axios from "axios";
 import { Cookies } from "react-cookie";
 import styles from '../../styles/Login.module.css';
+import Header from "@/components/Header";
 
 interface formValue {
   id: string;
@@ -53,9 +54,10 @@ const LoginPage: NextPage = () => {
   };
 
   return (
-    <div>
-      <form className = {styles.loginForm} onSubmit={handleSubmit(onSubmitHandler)}>
-        <div className = {styles.loginBox}>
+  <div className = {styles.loginPage} >
+    <Header/>
+    <form onSubmit={handleSubmit(onSubmitHandler)}>
+      <div className = {styles.loginBox}>
         <div>
           <div className = {styles.loginText}>아이디</div>
           <input className = {styles.loginInput} {...register('id')} />

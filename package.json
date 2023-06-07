@@ -25,5 +25,8 @@
     "react-dom": "18.2.0",
     "react-hook-form": "^7.44.3",
     "typescript": "5.0.4"
+  },
+  "devDependencies": {
+    "@svgr/webpack": "^8.0.1"
   }
 }
