@@ -9,7 +9,9 @@ export default function Header() {
             <Logo className = {styles.logo}/>
             </Link>
             <div className = {styles.buttons}>
+            <Link href= '/register'>
             <button className = {styles.registerBtn}>회원가입</button>
+            </Link>
             </div>
         </div>
     )
