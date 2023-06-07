@@ -3,6 +3,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useRouter } from "next/router";
 import axios from "axios";
 import { Cookies } from "react-cookie";
+import styles from '../../styles/Login.module.css';
 
 interface formValue {
   id: string;
@@ -53,12 +54,18 @@ const LoginPage: NextPage = () => {
 
   return (
     <div>
-      <form onSubmit={handleSubmit(onSubmitHandler)}>
-        <div>아이디</div>
-        <input {...register('id')} />
-        <div>비밀번호</div>
-        <input {...register('password')} type="password" />
-        <button>로그인</button>
+      <form className = {styles.loginForm} onSubmit={handleSubmit(onSubmitHandler)}>
+        <div className = {styles.loginBox}>
+        <div>
+          <div className = {styles.loginText}>아이디</div>
+          <input className = {styles.loginInput} {...register('id')} />
+        </div>
+        <div>
+          <div className = {styles.loginText}>비밀번호</div>
+          <input className = {styles.loginInput} {...register('password')} type="password" />
+        </div>
+        <button className = {styles.loginBtn}>로그인</button>
+        </div>
       </form>
     </div>
   )
