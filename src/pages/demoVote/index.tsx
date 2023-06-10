@@ -9,7 +9,7 @@ export default function demoVote(){
     return(
         <div className={styles.demoVotePage}>
             <Header/>
-            <div className={styles.boldText}>데모데이 투표</div>
+            <div className={styles.titleText}>데모데이 투표</div>
             <VoteBox groups={group}/>
             <button className={styles.voteBtn}>투표하기</button>
         </div>

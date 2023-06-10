@@ -15,8 +15,8 @@ export default function demoVote({groups}: demoVoteProps){
 
             <div className={styles.box}>
                 <div className={styles.textBox}>
-                <div className={styles.boldText}>{group.name}</div>
-                <div className={styles.lightText}>{group.detail}</div>
+                <div className={styles.nameText}>{group.name}</div>
+                <div className={styles.detailText}>{group.detail}</div>
                 </div>
             </div>
             ))}
@@ -26,8 +26,8 @@ export default function demoVote({groups}: demoVoteProps){
                 
                 <div className={styles.box}>
                     <div className={styles.textBox}>
-                    <div className={styles.boldText}>{group.name}</div>
-                    <div className={styles.lightText}>{group.detail}</div>
+                    <div className={styles.nameText}>{group.name}</div>
+                    <div className={styles.detailText}>{group.detail}</div>
                     </div>
                 </div>
                 ))}
