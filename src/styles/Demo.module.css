@@ -1,0 +1,15 @@
+.componentPage{
+    display: flex;
+    flex-direction: column;
+}
+
+.componentPart{
+    display: flex;
+    flex-direction: row;
+}
+
+.box{
+    height: 166px;
+    width: 400px;
+    background: #F4F4F4;
+}
