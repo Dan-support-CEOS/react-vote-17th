@@ -4,12 +4,13 @@ import client from './client';
 export const register = async ( 인자 받아옴 ) => {
   return client
     .post('/user/register', {
-      id: id,
+      user_id: id,
       name: name,
       email: email,
       password: pwd,
       part: part,
       team: team,
+      is_candidate: true,
     })
     .then(res => res.data);
 };
@@ -17,7 +18,7 @@ export const register = async ( 인자 받아옴 ) => {
 export const login = async ( 인자 받아옴 ) => {
   return client
     .post('/user/login', {
-      id: id,
+      user_id: id,
       password: pwd,
     })
     .then(res => res.data);
