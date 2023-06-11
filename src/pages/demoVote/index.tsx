@@ -7,7 +7,7 @@ export default function demoVote(){
     const group = groupData.groups;
 
     return(
-        <div className={styles.demoVotePage}>
+        <div className={styles.demoPage}>
             <Header/>
             <div className={styles.titleText}>데모데이 투표</div>
             <VoteBox groups={group}/>

@@ -46,4 +46,5 @@
     color: #FFFFFF;
     margin-top: 35px;
     cursor: pointer;
+    user-select: none;
 }

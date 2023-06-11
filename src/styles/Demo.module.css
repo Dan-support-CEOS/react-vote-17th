@@ -1,4 +1,4 @@
-.demoVotePage{
+.demoPage{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin-top: 20px;
 }
 
 .box{
@@ -36,6 +36,27 @@
     cursor: pointer;
 }
 
+.longBox{
+    height: 75px;
+    width: 750px;
+    border: 3px solid #00499E80;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #454545;
+    user-select: none;
+}
+
+.numberBox{
+    background:#00499E80;
+    height: 55px;
+    width: 55px;
+    border-radius: 10px;
+    margin-left: 10px;
+}
+
 .textBox{
     width: 290px;
     color: #454545;
@@ -48,19 +69,40 @@
 .titleText{
     font-size: 27px;
     font-weight: 700;
-    margin-bottom: 85px;
+    margin-bottom: 35px;
+    color: #454545;
 }
 
 .nameText{
     font-size: 27px;
     font-weight: 700;
-    margin-bottom: 12px;
 }
 
 .detailText{
     font-size: 17px;
     font-weight: 400;
     text-align: center;
+    margin-top: 12px;
+}
+
+.resultNameText{
+    font-size: 27px;
+    font-weight: 700;
+    width: 180px;
+    display: flex;
+    justify-content: center;
+}
+
+.resultDetailText{
+    font-size: 17px;
+    font-weight: 400;
+    width: 455px;
+}
+
+.scoreText{
+    font-size: 27px;
+    font-weight: 700;
+    width: 50px;
 }
 
 .voteBtn{
@@ -73,5 +115,5 @@
     font-weight: 700;
     color: #FFFFFF;
     cursor: pointer;
-    margin-top: 30px;
+    margin-top: 50px;
 }
