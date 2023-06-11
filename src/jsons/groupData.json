@@ -4,31 +4,31 @@
             "name": "댄서포트",
             "detail": "댄서들을 위한 통합 플랫폼",
             "id": 0,
-            "score": 3
+            "score": 6
         },
         {
             "name": "Hooking",
             "detail": "SNS 마케팅 문구 레퍼런스 플랫폼",
             "id": 1,
-            "score": 1
+            "score": 3
         },
         {
             "name": "Repick",
             "detail": "2040 남성들을 위한 맞춤형 중고 패션 구독 서비스",
             "id": 2,
-            "score": 0
+            "score": 2
         },
         {
             "name": "바리바리",
             "detail": "SNS 마케팅 문구 레퍼런스 플랫폼",
             "id": 3,
-            "score": 2
+            "score": 1
         },
         {
             "name": "TherapEase",
             "detail": "심리상담이 원활하게 이루어지기 위한 업무관리 플랫폼",
             "id": 4,
-            "score": 0
+            "score": 3
         }
     ]
 }
