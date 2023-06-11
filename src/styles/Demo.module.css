@@ -49,6 +49,19 @@
     user-select: none;
 }
 
+.firstLongBox{
+    background: #00499E;
+    height: 75px;
+    width: 750px;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 20px;
+    color: #FFFFFF;
+    user-select: none;
+}
+
 .numberBox{
     background:#00499E80;
     height: 55px;
@@ -58,6 +71,20 @@
     font-size: 27px;
     font-weight: 700;
     color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.firstNumberBox{
+    background:#FFFFFF;
+    height: 55px;
+    width: 55px;
+    border-radius: 10px;
+    margin-left: 10px;
+    font-size: 27px;
+    font-weight: 700;
+    color: #454545;
     display: flex;
     justify-content: center;
     align-items: center;

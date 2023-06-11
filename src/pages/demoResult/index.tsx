@@ -14,12 +14,24 @@ export default function demoResult(){
             <Header/>
             <div className={styles.titleText}>데모데이 투표결과</div>
             {groups.map((group, number) => (
-                <div className={styles.longBox}>
+                <>
+                    {number == 0 
+                    ?
+                    <div className={styles.firstLongBox}>
+                    <div className={styles.firstNumberBox}>{number = number + 1}</div>
+                    <div className={styles.resultNameText}>{group.name}</div>
+                    <div className={styles.resultDetailText}>{group.detail}</div>
+                    <div className={styles.scoreText}>{group.score}</div>
+                    </div>
+                    : 
+                    <div className={styles.longBox}>
                     <div className={styles.numberBox}>{number = number + 1}</div>
                     <div className={styles.resultNameText}>{group.name}</div>
                     <div className={styles.resultDetailText}>{group.detail}</div>
                     <div className={styles.scoreText}>{group.score}</div>
-                </div>
+                    </div>
+                    }
+                </>
             ))}
         </div>
     )
