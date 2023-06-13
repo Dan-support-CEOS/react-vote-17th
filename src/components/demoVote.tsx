@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import {Ingroup} from '../interface/interface';
 import styles from '../styles/Demo.module.css';
 
@@ -6,32 +7,31 @@ interface demoVoteProps{
 }
 
 export default function demoVote({groups}: demoVoteProps){
-    const firstList = groups.filter(group => group.id < 2)
-    const secondList = groups.filter(group => group.id > 1)
+    const [clickIndex,setClickIndex] = useState(5);
+
     return(
         <div className={styles.componentPage}>
             <div className={styles.componentPart}>
-            {firstList.map((group) => (
-
-            <div className={styles.box}>
-                <div className={styles.textBox}>
-                <div className={styles.nameText}>{group.name}</div>
-                <div className={styles.detailText}>{group.detail}</div>
-                </div>
-            </div>
-            ))}
-            </div>
-            <div className={styles.componentPart}>
-            {secondList.map((group) => (
-                
-                <div className={styles.box}>
+            {groups.map((group) => (
+            <div onClick={()=>setClickIndex(group.id)}>
+                {clickIndex === group.id?(
+                    <div className={styles.clickedBox}> 
                     <div className={styles.textBox}>
                     <div className={styles.nameText}>{group.name}</div>
                     <div className={styles.detailText}>{group.detail}</div>
                     </div>
-                </div>
-                ))}
-                </div>
+                    </div>
+                ):(
+                    <div className={styles.box}> 
+                    <div className={styles.textBox}>
+                    <div className={styles.nameText}>{group.name}</div>
+                    <div className={styles.detailText}>{group.detail}</div>
+                    </div>  
+                    </div>
+                )}
+            </div>
+            ))}
+            </div>
         </div>
     )
 }
