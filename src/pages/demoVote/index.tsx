@@ -11,7 +11,6 @@ export default function demoVote(){
             <Header/>
             <div className={styles.titleText}>데모데이 투표</div>
             <VoteBox groups={group}/>
-            <button className={styles.voteBtn}>투표하기</button>
         </div>
     )
 }

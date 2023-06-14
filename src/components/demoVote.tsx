@@ -7,11 +7,21 @@ interface demoVoteProps{
 }
 
 export default function demoVote({groups}: demoVoteProps){
-    const [clickIndex,setClickIndex] = useState(5);
     const firstGroup = groups.filter(group => group.id < 2);
     const secondGroup = groups.filter(group => group.id >1);
+    const [clickIndex,setClickIndex] = useState(5);
+    
+    function onVote(){
+        if(clickIndex == 5){
+            alert('투표할 팀을 선택해주세요');
+        }
+        else{
+            alert('투표되었습니다');
+        }
+    }
 
     return(
+        <>
         <div className={styles.componentPage}>
             <div className={styles.componentPart}>
             {firstGroup.map((group) => (
@@ -56,5 +66,7 @@ export default function demoVote({groups}: demoVoteProps){
             ))}
         </div>
         </div>
+        <button className={styles.voteBtn} onClick={()=>{onVote()}}>투표하기</button>
+        </>
     )
 }
