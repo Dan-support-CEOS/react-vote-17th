@@ -2,10 +2,10 @@ import client from './client';
 
 export const register = async (input: any) => {
   const response = await client.post('/user/register', {
-    id: input.id,
     name: input.name,
-    email: input.email,
+    id: input.id,
     password: input.password,
+    email: input.email,
     part: input.part,
     team: input.team,
   });
