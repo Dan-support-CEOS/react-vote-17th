@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query'; //getQueryClient 추가하기
-//import { register } from '@/apis/auth';
+import { register, checkId, checkEmail } from '@/apis/auth';
 
 export default function RegisterPage() {
   const [name, setName] = useState<string>('');
@@ -11,14 +11,14 @@ export default function RegisterPage() {
   const [team, setTeam] = useState<string>('');
   const [part, setPart] = useState<string>('');
 
-  //에러 메시지,확인 메시지
+  //에러 메시지,확인 메시지 state
   const [nameMsg, setNameMsg] = useState<string>('');
   const [idMsg, setIdMsg] = useState<string>('');
   const [pwdMsg, setPwdMsg] = useState<string>('');
   const [pwdConfirmMsg, setPwdConfirmMsg] = useState<string>('');
   const [emailMsg, setEmailMsg] = useState<string>('');
 
-  //유효성 검사 (Checked->형식에 맞는지 안맞는지, Valid->중복인지 아닌지)
+  //유효성 검사 state (Checked->형식에 맞는지 안맞는지, Valid->중복인지 아닌지)
   const [isNameChecked, setIsNameChecked] = useState<boolean>(false);
   const [isIdChecked, setIsIdChecked] = useState<boolean>(false);
   const [isPwdChecked, setIsPwdChecked] = useState<boolean>(false);
@@ -28,9 +28,57 @@ export default function RegisterPage() {
   const [isIdValid, setIsIdValid] = useState<boolean>(false);
   const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
 
-  /*
-    const handleSubmit = 
-  */
+  //api 로직들 가져와서 사용하기
+  const registerMutation = useMutation(register, {
+    onSuccess: data => {
+      alert('회원가입이 완료됐어요!');
+    },
+    onError: error => {
+      alert('회원가입에 실패했어요.');
+    },
+  });
+
+  const checkIdMutation = useMutation(checkId, {
+    onSuccess: data => {
+      alert('사용 가능한 아이디입니다');
+      setIsIdValid(true);
+    },
+    onError: error => {
+      alert('이미 사용 중인 아이디입니다');
+      setIsIdValid(false);
+    },
+  });
+
+  const checkEmailMutation = useMutation(checkEmail, {
+    onSuccess: data => {
+      alert('사용 가능한 이메일입니다');
+      setIsEmailValid(true);
+    },
+    onError: error => {
+      alert('이미 사용 중인 이메일입니다');
+      setIsEmailValid(false);
+    },
+  });
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    registerMutation.mutate({ id: id, password: pwd });
+  };
+
+  const checkDuplicatedId = (e: any) => {
+    e.preventDefault();
+
+    checkIdMutation.mutate(id);
+  };
+
+  const checkDuplicatedEmail = (e: any) => {
+    e.preventDefault();
+
+    checkEmailMutation.mutate(email);
+  };
+
+  //
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     const currentName = e.target.value;
@@ -100,13 +148,6 @@ export default function RegisterPage() {
       setIsEmailChecked(true);
     }
   };
-
-  /*
-  const checkDuplicatedId = 
-
-  const checkDuplicatedEmail = 
-
-*/
 
   return (
     <form>
