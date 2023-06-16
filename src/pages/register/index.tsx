@@ -63,6 +63,21 @@ export default function RegisterPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    if (
+      !(
+        isNameChecked &&
+        isIdChecked &&
+        isPwdChecked &&
+        isPwdConfirmChecked &&
+        isEmailChecked &&
+        isIdValid &&
+        isEmailValid
+      )
+    ) {
+      alert('다 제대로 입력해야 회원가입 됩니다잉'); //나중에 멘트 수정
+      return;
+    }
+
     registerMutation.mutate({
       name: name,
       id: id,
