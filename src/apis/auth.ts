@@ -1,25 +1,36 @@
 import client from './client';
 
-/*
-export const register = async ( 인자 받아옴 ) => {
-  return client
-    .post('/user/register', {
-      id: id,
-      name: name,
-      email: email,
-      password: pwd,
-      part: part,
-      team: team,
-    })
-    .then(res => res.data);
+export const register = async (input: any) => {
+  const response = await client.post('/user/register', {
+    id: input.id,
+    name: input.name,
+    email: input.email,
+    password: input.password,
+    part: input.part,
+    team: input.team,
+  });
+  return response.data;
 };
 
-export const login = async ( 인자 받아옴 ) => {
-  return client
-    .post('/user/login', {
-      id: id,
-      password: pwd,
-    })
-    .then(res => res.data);
+export const login = async (input: any) => {
+  const response = await client.post('/user/login', {
+    id: input.id,
+    password: input.password,
+  });
+  return response.data;
 };
-*/
+
+//id,email 중복 확인
+export const checkId = async (id: string) => {
+  const response = await client.post('/user/register/id', {
+    id: id,
+  });
+  return response.data;
+};
+
+export const checkEmail = async (email: string) => {
+  const response = await client.post('/user/register/email', {
+    email: email,
+  });
+  return response.data;
+};
