@@ -4,7 +4,7 @@ import { IUser } from '@/interface/interface';
 export const userState = atom<IUser>({
   key: 'userState',
   default: {
-    uid: 0,
+    uid: null,
     name: '',
     team: '',
     part: '',

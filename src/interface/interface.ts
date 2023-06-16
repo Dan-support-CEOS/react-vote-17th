@@ -1,5 +1,5 @@
 export interface IUser {
-  uid: number;
+  uid: number | null;
   name: string;
   team: string;
   part: string;
