@@ -1,6 +1,6 @@
 import { useState } from 'react';
-//import { useRecoilState } from 'recoil';
-//import { register } from '@/service/auth';
+import { useMutation } from '@tanstack/react-query'; //getQueryClient 추가하기
+//import { register } from '@/apis/auth';
 
 export default function RegisterPage() {
   const [name, setName] = useState<string>('');
@@ -27,6 +27,10 @@ export default function RegisterPage() {
   const [isEmailChecked, setIsEmailChecked] = useState<boolean>(false);
   const [isIdValid, setIsIdValid] = useState<boolean>(false);
   const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
+
+  /*
+    const handleSubmit = 
+  */
 
   const handleChangeName = (e: React.ChangeEvent<HTMLInputElement>) => {
     const currentName = e.target.value;
@@ -97,6 +101,13 @@ export default function RegisterPage() {
     }
   };
 
+  /*
+  const checkDuplicatedId = 
+
+  const checkDuplicatedEmail = 
+
+*/
+
   return (
     <form>
       {/* onSubmit={handleSubmit} */}
@@ -119,7 +130,7 @@ export default function RegisterPage() {
         required
       />
       <p>{idMsg}</p>
-      <button>중복 인증</button>
+      <button>중복 인증</button> {/* onClick={checkDuplicatedId} */}
       <h3>비밀번호</h3>
       <input
         placeholder="비밀번호"
@@ -147,7 +158,7 @@ export default function RegisterPage() {
         required
       />
       <p>{emailMsg}</p>
-      <button>중복 인증</button>
+      <button>중복 인증</button> {/* onClick={checkDuplicatedEmail} */}
       <h3>팀명/파트</h3>
       <select>
         {/* List 만들어서 리팩토링 나중에 */}
