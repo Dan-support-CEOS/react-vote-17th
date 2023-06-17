@@ -8,8 +8,8 @@ export default function RegisterPage() {
   const [pwd, setPwd] = useState<string>('');
   const [pwdConfirm, setPwdConfirm] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const [team, setTeam] = useState<string>('');
-  const [part, setPart] = useState<string>('');
+  const [team, setTeam] = useState<string>('DANSUPPORT');
+  const [part, setPart] = useState<string>('FRONTEND');
 
   //에러 메시지,확인 메시지 state
   const [nameMsg, setNameMsg] = useState<string>('');
@@ -171,6 +171,9 @@ export default function RegisterPage() {
     }
   };
 
+  const TeamList = ['DANSUPPORT', 'HOOKING', 'BARIBARI', 'THERAPESE', 'REPICK'];
+  const PartList = ['FRONTEND', 'BACKEND'];
+
   return (
     <form>
       {/* onSubmit={handleSubmit} */}
@@ -223,18 +226,29 @@ export default function RegisterPage() {
       <p>{emailMsg}</p>
       <button>중복 인증</button> {/* onClick={checkDuplicatedEmail} */}
       <h3>팀명/파트</h3>
-      <select>
-        {/* List 만들어서 리팩토링 나중에 */}
-        <option value="dansupport">DANSUPPORT</option>
-        <option value="hooking">HOOKING</option>
-        <option value="baribari">BARIBARI</option>
-        <option value="therapese">THERAPESE</option>
-        <option value="repick">REPICK</option>
+      <select
+        onChange={(e: any) => {
+          setTeam(e.target.value);
+          console.log(team);
+        }}
+      >
+        {TeamList.map((item, idx) => (
+          <option value={item} key={idx}>
+            {item}
+          </option>
+        ))}
       </select>
-      <select>
-        {/* List 만들어서 리팩토링 나중에 */}
-        <option value="frontend">FRONTEND</option>
-        <option value="backend">BACKEND</option>
+      <select
+        onChange={(e: any) => {
+          setPart(e.target.value);
+          console.log(part);
+        }}
+      >
+        {PartList.map((item, idx) => (
+          <option value={item} key={idx}>
+            {item}
+          </option>
+        ))}
       </select>
       <button type="submit">회원가입</button>
     </form>
