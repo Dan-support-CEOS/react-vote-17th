@@ -1,9 +1,9 @@
-import groupData from '../../jsons/groupData.json';
-import VoteBox from '../../components/demoVote';
-import styles from '../../styles/Demo.module.css';
+import groupData from '../../../jsons/groupData.json';
+import VoteBox from '../../../components/demoVote';
+import styles from '../../../styles/Demo.module.css';
 import Header from '@/components/Header';
 
-export default function demoVote(){
+export default function DemoDayVotePage(){
     const group = groupData.groups;
 
     return(

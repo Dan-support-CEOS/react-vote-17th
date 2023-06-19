@@ -14,10 +14,10 @@ export default function Home() {
       <hr className = {styles.line}/>
       <div className = {styles.part}>
         <div className = {styles.homeText}>데모데이 투표</div>
-        <Link href= '/demoVote'>
+        <Link href= '/vote/demo-day'>
         <button className= {styles.voteBtn}>투표하기</button>
         </Link>
-        <Link href= '/demoResult'>
+        <Link href= '/result/demo-day'>
         <button className= {styles.resultBtn}>결과보기</button>
         </Link>
       </div>

@@ -1,8 +1,8 @@
-import styles from '../../styles/Demo.module.css';
+import styles from '../../../styles/Demo.module.css';
 import Header from '@/components/Header';
-import groupData from '../../jsons/groupData.json';
+import groupData from '../../../jsons/groupData.json';
 
-export default function demoResult(){
+export default function DemoDayResultPage(){
     const groups = groupData.groups;
     const rank = [1,2,3,4,5];
     let newRank;
