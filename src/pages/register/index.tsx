@@ -9,7 +9,7 @@ export default function RegisterPage() {
   const [pwdConfirm, setPwdConfirm] = useState<string>('');
   const [email, setEmail] = useState<string>('');
   const [team, setTeam] = useState<string>('DANSUPPORT');
-  const [part, setPart] = useState<string>('FRONTEND');
+  const [part, setPart] = useState<string>('fe'); //'fe'/'be'
 
   //에러 메시지,확인 메시지 state
   const [nameMsg, setNameMsg] = useState<string>('');
@@ -172,7 +172,10 @@ export default function RegisterPage() {
   };
 
   const TeamList = ['DANSUPPORT', 'HOOKING', 'BARIBARI', 'THERAPESE', 'REPICK'];
-  const PartList = ['FRONTEND', 'BACKEND'];
+  const PartList = [
+    { value: 'fe', name: 'FRONTEND' },
+    { value: 'be', name: 'BACKEND' },
+  ];
 
   return (
     <form>
@@ -245,8 +248,8 @@ export default function RegisterPage() {
         }}
       >
         {PartList.map((item, idx) => (
-          <option value={item} key={idx}>
-            {item}
+          <option value={item.value} key={idx}>
+            {item.name}
           </option>
         ))}
       </select>

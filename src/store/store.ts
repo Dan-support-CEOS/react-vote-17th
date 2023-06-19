@@ -7,7 +7,7 @@ export const userState = atom<IUser>({
     uid: null,
     name: '',
     team: '',
-    part: '',
+    part: '', //'fe'/'be'
     accessToken: '',
     refreshToken: '', //이건 cookie에만 저장해도 되지 않나?!
   },
