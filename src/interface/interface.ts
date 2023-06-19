@@ -7,3 +7,9 @@ export interface IUser {
     refreshToken: string;
   }
 
+  export interface Ingroup{
+    name: string;
+    detail: string;
+    id: number;
+    score: number;
+}
