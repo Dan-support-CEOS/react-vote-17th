@@ -1,0 +1,50 @@
+.loginPage{
+    background: #00499E;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.loginBox{
+    background: #FFFFFF;
+    height: 359px;
+    width: 643px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.loginText{
+    font-size:20px;
+    font-weight:400;
+    color: #454545;
+    margin: 20px 0 10px 0;
+}
+
+.loginInput{
+    height: 50px;
+    width: 501px;
+    border-radius: 20px;
+    border: 1px solid #454545;
+    outline: none;
+    font-size: 20px;
+    color: #454545; 
+    padding-left: 17px;
+}
+
+.loginBtn{
+    background: #00499E;
+    height: 58px;
+    width: 160px;
+    border-radius: 20px;
+    border: none;
+    font-size: 20px;
+    color: #FFFFFF;
+    margin-top: 35px;
+    cursor: pointer;
+    user-select: none;
+}
