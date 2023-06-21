@@ -1,11 +1,36 @@
 import { useState } from 'react';
+import { useRecoilValue } from 'recoil';
+import { userState } from '@/store/store';
+import { useMutation } from '@tanstack/react-query'; //getQueryClient 추가하기
+import { votePartLeader } from '@/apis/vote';
 import { useRouter } from 'next/router';
 
 export default function PartLeaderVotePage() {
   const [selectedCandidate, setSelectedCandidate] = useState<string>('');
 
+  const user = useRecoilValue(userState); //전역 상태 userState
+  const accessToken = user.accessToken;
+
   const router = useRouter();
   const { part } = router.query;
+
+  //api 로직 가져와서 사용하기
+  const votePartLeaderMutation = useMutation(votePartLeader, {
+    onSuccess: data => {
+      alert('투표가 완료됐어요!');
+    },
+    onError: error => {
+      alert('투표에 실패했어요.');
+    },
+  });
+
+  const handleVoteBtnClick = (e: any) => {
+    votePartLeaderMutation.mutate({
+      name: selectedCandidate,
+      accessToken: accessToken,
+      part: part,
+    });
+  };
 
   const handleCandidateClick = (e: any) => {
     setSelectedCandidate(e.target.textContent);
@@ -53,7 +78,7 @@ export default function PartLeaderVotePage() {
           {candidate}
         </button>
       ))}
-      <button>투표하기</button>
+      <button onClick={handleVoteBtnClick}>투표하기</button>
     </div>
   );
 }
