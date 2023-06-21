@@ -1,8 +1,16 @@
+import { useState } from 'react';
 import { useRouter } from 'next/router';
 
 export default function PartLeaderVotePage() {
+  const [selectedCandidate, setSelectedCandidate] = useState<string>('');
+
   const router = useRouter();
   const { part } = router.query;
+
+  const handleCandidateClick = (e: any) => {
+    setSelectedCandidate(e.target.textContent);
+    //console.log(selectedCandidate);
+  };
 
   const FeInfo = {
     partName: 'FE',
@@ -41,7 +49,9 @@ export default function PartLeaderVotePage() {
     <div>
       <h3>{Info.partName} 파트장 투표</h3>
       {Info.candidates.map((candidate, idx) => (
-        <button key={idx}>{candidate}</button>
+        <button key={idx} onClick={handleCandidateClick}>
+          {candidate}
+        </button>
       ))}
       <button>투표하기</button>
     </div>
