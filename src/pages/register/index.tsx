@@ -8,7 +8,7 @@ export default function RegisterPage() {
   const [pwd, setPwd] = useState<string>('');
   const [pwdConfirm, setPwdConfirm] = useState<string>('');
   const [email, setEmail] = useState<string>('');
-  const [team, setTeam] = useState<string>('DANSUPPORT');
+  const [team, setTeam] = useState<string>('댄서포트');
   const [part, setPart] = useState<string>('fe'); //'fe'/'be'
 
   //에러 메시지,확인 메시지 state
@@ -171,7 +171,7 @@ export default function RegisterPage() {
     }
   };
 
-  const TeamList = ['DANSUPPORT', 'HOOKING', 'BARIBARI', 'THERAPESE', 'REPICK'];
+  const TeamList = ['댄서포트', 'Hooking', '바리바리', 'TherapEase', 'Repick'];
   const PartList = [
     { value: 'fe', name: 'FRONTEND' },
     { value: 'be', name: 'BACKEND' },
