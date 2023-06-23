@@ -34,4 +34,3 @@ export const checkEmail = async (email: string) => {
   });
   return response.data;
 };
-

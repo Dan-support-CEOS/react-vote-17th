@@ -1,13 +1,17 @@
 import { useState } from 'react';
+import {useNavigate} from 'react-router';
 import { useMutation } from '@tanstack/react-query'; //getQueryClient 추가하기
 import { useRecoilState } from 'recoil';
 import { login } from '@/apis/auth';
 import { userState } from '@/store/store';
+import axios from 'axios';
 import styles from '../../styles/Login.module.css';
 import Header from '@/components/Header';
 
 export default function LoginPage() {
   const [user, setUser] = useRecoilState(userState); //전역 상태 userState
+  
+  const navigate = useNavigate();
 
   const [id, setId] = useState<string>('');
   const [pwd, setPwd] = useState<string>('');
@@ -16,10 +20,14 @@ export default function LoginPage() {
   const loginMutation = useMutation(login, {
     onSuccess: data => {
       setUser(data); //전역 상태 userState에, 백엔드로부터 받은 'uid,name,team,part,accessToken..' 저장!
-      alert('로그인이 완료됐어요!');
+      axios.defaults.headers.common['Authorization'] = 
+      'Bearer' + data.accessToken;
+      navigate({
+        pathname: '/',
+      });
     },
     onError: error => {
-      alert('로그인에 실패했어요.');
+      alert('로그인에 실패했습니다');
     },
   });
 
