@@ -30,37 +30,38 @@ export default function LoginPage() {
   };
 
   return (
-  <div className = {styles.loginPage} >
-    <Header/>
-    <form>
-      <div className = {styles.loginBox}>
-      {/* onSubmit={handleSubmit} */}
+    <div className={styles.loginPage}>
+      <Header />
+      <form>
+        {/* onSubmit={handleSubmit} */}
+        <div className={styles.loginBox}>
+          <div>
+            <div className={styles.loginText}>아이디</div>
+            <input
+              className={styles.loginInput}
+              type="text"
+              value={id}
+              onChange={e => setId(e.target.value)}
+              required
+            />
+          </div>
 
-      <div>
-      <div className = {styles.loginText}>아이디</div>
-      <input className = {styles.loginInput}
-        type="text"
-        value={id}
-        onChange={e => setId(e.target.value)}
-        required
-      />
-      </div>
+          <div>
+            <div className={styles.loginText}>비밀번호</div>
+            <input
+              className={styles.loginInput}
+              type="password"
+              value={pwd}
+              onChange={e => setPwd(e.target.value)}
+              required
+            />
+          </div>
 
-      <div>
-      <div className = {styles.loginText}>비밀번호</div>
-      <input className = {styles.loginInput} 
-        type="password"
-        value={pwd}
-        onChange={e => setPwd(e.target.value)}
-        required
-      />
-      </div>
-
-      <button className = {styles.loginBtn} type="submit">로그인</button>
-      </div>
-    </form>
+          <button className={styles.loginBtn} type="submit">
+            로그인
+          </button>
+        </div>
+      </form>
     </div>
   );
-
 }
-
