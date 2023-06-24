@@ -1,10 +1,26 @@
-import Head from 'next/head';
-import Image from 'next/image';
-import { Inter } from 'next/font/google';
 import styles from '@/styles/Home.module.css';
-
-const inter = Inter({ subsets: ['latin'] });
+import Header from '@/components/Header';
+import Link from 'next/link';
 
 export default function Home() {
-  return <>react-vote-17th</>;
+  return (
+    <div className={styles.homePage}>
+      <Header />
+      <div className={styles.part}>
+        <div className={styles.homeText}>파트장 투표</div>
+        <button className={styles.voteBtn}>투표하기</button>
+        <button className={styles.resultBtn}>결과보기</button>
+      </div>
+      <hr className={styles.line} />
+      <div className={styles.part}>
+        <div className={styles.homeText}>데모데이 투표</div>
+        <Link href="/vote/demo-day">
+          <button className={styles.voteBtn}>투표하기</button>
+        </Link>
+        <Link href="/result/demo-day">
+          <button className={styles.resultBtn}>결과보기</button>
+        </Link>
+      </div>
+    </div>
+  );
 }

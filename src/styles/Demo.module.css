@@ -1,0 +1,164 @@
+.demoPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 100px;
+}
+
+.componentPage {
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.componentPart {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.box {
+  background: #f4f4f4;
+  height: 140px;
+  width: 320px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.box:hover {
+  border: 3px solid #454545;
+  cursor: pointer;
+}
+
+.clickedBox {
+  background: #f4f4f4;
+  height: 140px;
+  width: 320px;
+  border: 3px solid #454545;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.longBox {
+  height: 75px;
+  width: 750px;
+  border: 3px solid #00499e80;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #454545;
+  user-select: none;
+}
+
+.firstLongBox {
+  background: #00499e;
+  height: 75px;
+  width: 750px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 20px;
+  color: #ffffff;
+  user-select: none;
+}
+
+.numberBox {
+  background: #00499e80;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 27px;
+  font-weight: 700;
+  color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.firstNumberBox {
+  background: #ffffff;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  margin-left: 10px;
+  font-size: 27px;
+  font-weight: 700;
+  color: #454545;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.textBox {
+  width: 290px;
+  color: #454545;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.titleText {
+  font-size: 27px;
+  font-weight: 700;
+  margin-bottom: 35px;
+  color: #454545;
+}
+
+.nameText {
+  font-size: 27px;
+  font-weight: 700;
+}
+
+.detailText {
+  font-size: 17px;
+  font-weight: 400;
+  text-align: center;
+  margin-top: 12px;
+}
+
+.resultNameText {
+  font-size: 27px;
+  font-weight: 700;
+  width: 180px;
+  display: flex;
+  justify-content: center;
+}
+
+.resultDetailText {
+  font-size: 17px;
+  font-weight: 400;
+  width: 455px;
+}
+
+.scoreText {
+  font-size: 27px;
+  font-weight: 700;
+  width: 50px;
+}
+
+.voteBtn {
+  background: #00499e;
+  height: 65px;
+  width: 215px;
+  border-radius: 20px;
+  border: none;
+  font-size: 23px;
+  font-weight: 700;
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: 50px;
+}

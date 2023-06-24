@@ -6,3 +6,10 @@ export interface IUser {
   accessToken: string;
   refreshToken: string;
 }
+
+export interface Ingroup {
+  name: string;
+  detail: string;
+  id: number;
+  score: number;
+}
