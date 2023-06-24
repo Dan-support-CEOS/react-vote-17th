@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'https://api.themoviedb.org/3',
+  baseURL: 'https://takgyun.shop/swagger/?format=openapi',
   withCredentials: true,
 });
 
