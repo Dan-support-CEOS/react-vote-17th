@@ -3,8 +3,7 @@ import { useMutation } from '@tanstack/react-query'; //getQueryClient 추가하�
 import { useRecoilState } from 'recoil';
 import { login } from '@/apis/auth';
 import { userState } from '@/store/store';
-import styles from '../../styles/Login.module.css';
-import Header from '@/components/Header';
+import styles from '../../styles/LoginPage.module.css';
 
 export default function LoginPage() {
   const [user, setUser] = useRecoilState(userState); //전역 상태 userState
@@ -31,7 +30,6 @@ export default function LoginPage() {
 
   return (
     <div className={styles.loginPage}>
-      <Header />
       <form>
         {/* onSubmit={handleSubmit} */}
         <div className={styles.loginBox}>

@@ -1,6 +1,6 @@
 import groupData from '../../../jsons/groupData.json';
 import VoteBox from '../../../components/DemoDayVotePage/DemoVote';
-import styles from '../../../styles/Demo.module.css';
+import styles from '../../../styles/DemoDayPage.module.css';
 import Header from '@/components/Header';
 
 export default function DemoDayVotePage() {

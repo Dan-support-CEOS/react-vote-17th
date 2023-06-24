@@ -1,4 +1,4 @@
-import styles from '../../../styles/Demo.module.css';
+import styles from '../../../styles/DemoDayPage.module.css';
 import Header from '@/components/Header';
 import groupData from '../../../jsons/groupData.json';
 

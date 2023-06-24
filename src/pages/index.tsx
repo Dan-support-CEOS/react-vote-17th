@@ -1,11 +1,9 @@
-import styles from '@/styles/Home.module.css';
-import Header from '@/components/Header';
+import styles from '@/styles/HomePage.module.css';
 import Link from 'next/link';
 
 export default function Home() {
   return (
     <div className={styles.homePage}>
-      <Header />
       <div className={styles.part}>
         <div className={styles.homeText}>파트장 투표</div>
         <button className={styles.voteBtn}>투표하기</button>

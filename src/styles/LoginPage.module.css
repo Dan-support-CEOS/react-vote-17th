@@ -5,6 +5,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  padding-top: 100px;
 }
 
 .loginBox {
@@ -15,7 +17,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
 }
 
 .loginText {

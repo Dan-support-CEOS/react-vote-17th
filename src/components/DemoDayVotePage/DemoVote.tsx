@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Ingroup } from '../../interface/interface';
-import styles from '../../styles/Demo.module.css';
+import styles from '../../styles/DemoDayPage.module.css';
 
 interface DemoVoteProps {
   groups: Ingroup[];

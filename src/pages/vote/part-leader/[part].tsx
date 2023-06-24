@@ -4,6 +4,7 @@ import { userState } from '@/store/store';
 import { useMutation } from '@tanstack/react-query'; //getQueryClient 추가하기
 import { votePartLeader } from '@/apis/vote';
 import { useRouter } from 'next/router';
+import styles from '../../../styles/PartLeaderVotePage.module.css';
 
 export default function PartLeaderVotePage() {
   const [selectedCandidate, setSelectedCandidate] = useState<string>('');
@@ -71,14 +72,22 @@ export default function PartLeaderVotePage() {
   const Info = part === 'fe' ? FeInfo : BeInfo;
 
   return (
-    <div>
-      <h3>{Info.partName} 파트장 투표</h3>
-      {Info.candidates.map((candidate, idx) => (
-        <button key={idx} onClick={handleCandidateClick}>
-          {candidate}
-        </button>
-      ))}
-      <button onClick={handleVoteBtnClick}>투표하기</button>
+    <div className={styles.container}>
+      <div className={styles.title}>{Info.partName} 파트장 투표</div>
+      <div>
+        {Info.candidates.map((candidate, idx) => (
+          <button
+            className={styles.candidateBtn}
+            key={idx}
+            onClick={handleCandidateClick}
+          >
+            {candidate}
+          </button>
+        ))}
+      </div>
+      <button className={styles.voteBtn} onClick={handleVoteBtnClick}>
+        투표하기
+      </button>
     </div>
   );
 }
