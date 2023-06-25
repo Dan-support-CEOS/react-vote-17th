@@ -182,79 +182,101 @@ export default function RegisterPage() {
     <div className={styles.container}>
       <form className={styles.form}>
         {/* onSubmit={handleSubmit} */}
-        <h3>이름</h3>
-        <input
-          placeholder="이름"
-          type="text"
-          value={name}
-          onChange={handleChangeName}
-          required
-        />
-        <p>{nameMsg}</p>
-        {/* 나중에, className={isNameChecked ? 'success' : 'error'} 작성해서, 색깔 토글해주기! */}
-        <h3>아이디</h3>
-        <input
-          placeholder="아이디"
-          type="text"
-          value={id}
-          onChange={handleChangeId}
-          required
-        />
-        <p>{idMsg}</p>
-        <button>중복 인증</button> {/* onClick={checkDuplicatedId} */}
-        <h3>비밀번호</h3>
-        <input
-          placeholder="비밀번호"
-          type="password"
-          value={pwd}
-          onChange={handleChangePwd}
-          required
-        />
-        <p>{pwdMsg}</p>
-        <h3>비밀번호 확인</h3>
-        <input
-          placeholder="비밀번호 확인"
-          type="password"
-          value={pwdConfirm}
-          onChange={handleChangePwdConfirm}
-          required
-        />
-        <p>{pwdConfirmMsg}</p>
-        <h3>이메일</h3>
-        <input
-          placeholder="이메일"
-          type="email"
-          value={email}
-          onChange={handleChangeEmail}
-          required
-        />
-        <p>{emailMsg}</p>
-        <button>중복 인증</button> {/* onClick={checkDuplicatedEmail} */}
-        <h3>팀명/파트</h3>
-        <select
-          onChange={(e: any) => {
-            setTeam(e.target.value);
-            console.log(team);
-          }}
-        >
-          {TeamList.map((item, idx) => (
-            <option value={item} key={idx}>
-              {item}
-            </option>
-          ))}
-        </select>
-        <select
-          onChange={(e: any) => {
-            setPart(e.target.value);
-            console.log(part);
-          }}
-        >
-          {PartList.map((item, idx) => (
-            <option value={item.value} key={idx}>
-              {item.name}
-            </option>
-          ))}
-        </select>
+
+        <div className={styles.box}>
+          <h3>이름</h3>
+          <input
+            placeholder="이름"
+            type="text"
+            value={name}
+            onChange={handleChangeName}
+            required
+          />
+          <p>{nameMsg}</p>
+          {/* 나중에, className={isNameChecked ? 'success' : 'error'} 작성해서, 색깔 토글해주기! */}
+        </div>
+
+        <div className={styles.box}>
+          <h3>아이디</h3>
+          <div className={styles.idBox}>
+            <input
+              placeholder="아이디"
+              type="text"
+              value={id}
+              onChange={handleChangeId}
+              required
+            />
+            <button>중복 인증</button> {/* onClick={checkDuplicatedId} */}
+          </div>
+          <p>{idMsg}</p>
+        </div>
+
+        <div className={styles.box}>
+          <h3>비밀번호</h3>
+          <input
+            placeholder="비밀번호"
+            type="password"
+            value={pwd}
+            onChange={handleChangePwd}
+            required
+          />
+          <p>{pwdMsg}</p>
+        </div>
+
+        <div className={styles.box}>
+          <h3>비밀번호 확인</h3>
+          <input
+            placeholder="비밀번호 확인"
+            type="password"
+            value={pwdConfirm}
+            onChange={handleChangePwdConfirm}
+            required
+          />
+          <p>{pwdConfirmMsg}</p>
+        </div>
+
+        <div className={styles.box}>
+          <h3>이메일</h3>
+          <div className={styles.emailBox}>
+            <input
+              placeholder="이메일"
+              type="email"
+              value={email}
+              onChange={handleChangeEmail}
+              required
+            />
+            <button>중복 인증</button> {/* onClick={checkDuplicatedEmail} */}
+          </div>
+          <p>{emailMsg}</p>
+        </div>
+        <div className={styles.box}>
+          <h3>팀명/파트</h3>
+          <select
+            onChange={(e: any) => {
+              setTeam(e.target.value);
+              console.log(team);
+            }}
+          >
+            {TeamList.map((item, idx) => (
+              <option value={item} key={idx}>
+                {item}
+              </option>
+            ))}
+          </select>
+          <select
+            onChange={(e: any) => {
+              setPart(e.target.value);
+              console.log(part);
+            }}
+          >
+            {PartList.map((item, idx) => (
+              <option value={item.value} key={idx}>
+                {item.name}
+              </option>
+            ))}
+          </select>
+        </div>
+
         <button type="submit">회원가입</button>
       </form>
     </div>

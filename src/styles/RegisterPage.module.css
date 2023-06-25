@@ -13,3 +13,8 @@
   background-color: white;
   width: 600px;
 }
+
+.idBox,
+.emailBox {
+  display: flex;
+}

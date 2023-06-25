@@ -74,7 +74,7 @@ export default function PartLeaderVotePage() {
   return (
     <div className={styles.container}>
       <div className={styles.title}>{Info.partName} 파트장 투표</div>
-      <div>
+      <div className={styles.candidatesBox}>
         {Info.candidates.map((candidate, idx) => (
           <button
             className={styles.candidateBtn}

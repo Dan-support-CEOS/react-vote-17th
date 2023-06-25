@@ -14,6 +14,12 @@
   font-weight: 700;
 }
 
+.candidatesBox {
+  display: flex;
+  flex-wrap: wrap; /*한줄로 쭉 정렬되던 걸 줄이 나눠지게(디폴튼는 nowrap)*/
+  justify-content: center;
+}
+
 .candidateBtn {
   background-color: #f4f4f4;
   font-size: 27px;
