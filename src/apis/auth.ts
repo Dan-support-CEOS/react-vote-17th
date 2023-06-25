@@ -57,15 +57,23 @@ export const checkEmail = async (email: string) => {
 };
 
 //데모데이 투표
-export const demoDayVote = async (team: any) => {
-  const response = await client.post('/votes/teams/', {
-    team: team,
-  });
+export const demoDayVote = async (info: any) => {
+  const response = await client.post(
+    '/votes/teams/',
+    {
+      tname: info.team,
+    },
+    {
+      headers: {
+        Authorization: `Bearer ${info.token}`,
+      },
+    },
+  );
   return response.data;
 };
 
 //데모데이 결과
-export const demoDayResult = async () => {
+export const getDemoDayResult = async () => {
   const response = await client.get('/votes/teams/result/');
   return response.data;
 };

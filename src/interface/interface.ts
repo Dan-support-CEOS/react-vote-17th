@@ -8,10 +8,9 @@ export interface IUser {
 }
 
 export interface Ingroup {
-  name: string;
+  tname: string;
   detail: string;
   id: number;
-  score: number;
 }
 
 export interface ILoginProps {

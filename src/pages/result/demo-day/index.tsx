@@ -1,9 +1,23 @@
+import { getDemoDayResult } from '@/apis/auth';
 import styles from '../../../styles/Demo.module.css';
 import Header from '@/components/Header';
-import groupData from '../../../jsons/groupData.json';
+import { useQuery } from '@tanstack/react-query';
+import { useState } from 'react';
 
 export default function DemoDayResultPage() {
-  const groups = groupData.groups;
+  const [groups, setGroups] = useState<any[]>([]);
+
+  const { data: demoDayResult } = useQuery(
+    ['demo-day-result'],
+    getDemoDayResult,
+    {
+      onSuccess: data => {
+        console.log(data);
+        setGroups(demoDayResult);
+      },
+    },
+  );
+
   const rank = [1, 2, 3, 4, 5];
   let newRank;
 
@@ -27,15 +41,15 @@ export default function DemoDayResultPage() {
             {newRank == 1 ? (
               <div className={styles.firstLongBox}>
                 <div className={styles.firstNumberBox}>{newRank}</div>
-                <div className={styles.resultNameText}>{group.name}</div>
-                <div className={styles.resultDetailText}>{group.detail}</div>
+                <div className={styles.resultNameText}>{group.tname}</div>
+                <div className={styles.resultDetailText}></div>
                 <div className={styles.scoreText}>{group.score}</div>
               </div>
             ) : (
               <div className={styles.longBox}>
                 <div className={styles.numberBox}>{newRank}</div>
-                <div className={styles.resultNameText}>{group.name}</div>
-                <div className={styles.resultDetailText}>{group.detail}</div>
+                <div className={styles.resultNameText}>{group.tname}</div>
+                <div className={styles.resultDetailText}></div>
                 <div className={styles.scoreText}>{group.score}</div>
               </div>
             )}

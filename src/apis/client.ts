@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'https://takgyun.shop/swagger/?format=openapi',
+  baseURL: 'https://takgyun.shop/',
   withCredentials: true,
 });
 
