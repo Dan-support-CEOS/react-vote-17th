@@ -249,6 +249,7 @@ export default function RegisterPage() {
           </div>
           <p>{emailMsg}</p>
         </div>
+
         <div className={styles.box}>
           <h3>팀명/파트</h3>
           <select

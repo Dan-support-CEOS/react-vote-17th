@@ -16,7 +16,7 @@
 
 .candidatesBox {
   display: flex;
-  flex-wrap: wrap; /*한줄로 쭉 정렬되던 걸 줄이 나눠지게(디폴튼는 nowrap)*/
+  flex-wrap: wrap; /*한 줄로 쭉 정렬되던 걸 줄바꿈되게(디폴트는 nowrap)*/
   justify-content: center;
 }
 
