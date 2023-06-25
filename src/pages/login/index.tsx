@@ -1,18 +1,16 @@
 import { useState } from 'react';
-import { useRouter } from 'next/router';
 import styles from '../../styles/Login.module.css';
 import Header from '@/components/Header';
 import { useMutateLogin } from '@/hook/use-mutate-login';
+import { login } from '@/apis/auth';
 
 export default function LoginPage() {
-  const router = useRouter();
-
   const [id, setId] = useState<string>('');
   const [pwd, setPwd] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    useMutateLogin(login);
     e.preventDefault();
-    useMutateLogin;
   };
 
   return (

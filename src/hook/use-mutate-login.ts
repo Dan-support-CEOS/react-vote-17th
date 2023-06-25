@@ -7,7 +7,6 @@ export const useMutateLogin = (
   mutateFunction: ({ id, password }: ILoginProps) => Promise<IUser>,
 ) => {
   const router = useRouter();
-
   const { mutate, data } = useMutation(mutateFunction, {
     onSuccess: data => {
       axios.defaults.headers.common['Authorization'] =
