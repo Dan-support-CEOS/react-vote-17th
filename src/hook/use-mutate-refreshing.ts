@@ -5,7 +5,6 @@ import axios from 'axios';
 
 export const useMutateRefreshing = (mutateFunction: () => Promise<IUser>) => {
   const router = useRouter();
-
   const { mutate, data } = useMutation(mutateFunction, {
     onSuccess: data => {
       axios.defaults.headers.common['Authorization'] =
@@ -21,7 +20,6 @@ export const useMutateRefreshing = (mutateFunction: () => Promise<IUser>) => {
 
 export const useMutateLogout = (mutateFunction: () => Promise<IUser>) => {
   const router = useRouter();
-
   const { mutate, data } = useMutation(mutateFunction, {
     onSuccess: data => {
       axios.defaults.headers.common['Authorization'] = '';

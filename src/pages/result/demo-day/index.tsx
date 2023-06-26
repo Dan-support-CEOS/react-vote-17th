@@ -3,13 +3,6 @@ import styles from '../../../styles/Demo.module.css';
 import Header from '@/components/Header';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
-import { useMutateRefreshing } from '@/hook/use-mutate-refreshing';
-import { mutateRefreshing } from '@/apis/auth';
-import { useEffect } from 'react';
-
-function refreshingHandler() {
-  useMutateRefreshing(mutateRefreshing);
-}
 
 export default function DemoDayResultPage() {
   const [groups, setGroups] = useState<any[]>([]);
@@ -20,7 +13,7 @@ export default function DemoDayResultPage() {
     {
       onSuccess: data => {
         console.log(data);
-        setGroups(demoDayResult);
+        setGroups(data);
       },
     },
   );
@@ -28,42 +21,38 @@ export default function DemoDayResultPage() {
   const rank = [1, 2, 3, 4, 5];
   let newRank;
 
-  //page 바뀔 때, login refresh
-  useEffect(() => {
-    refreshingHandler();
-  }, []);
-
   return (
     <div className={styles.demoPage}>
       <Header />
       <div className={styles.titleText}>데모데이 투표결과</div>
-      {groups.map((group, index) => {
-        newRank = rank[index];
+      {groups &&
+        groups.map((group, index) => {
+          newRank = rank[index];
 
-        if (index != 0 && groups[index].score === groups[index - 1].score) {
-          rank[index] = rank[index - 1];
-          newRank = rank[index - 1];
-        }
-        return (
-          <>
-            {newRank == 1 ? (
-              <div className={styles.firstLongBox}>
-                <div className={styles.firstNumberBox}>{newRank}</div>
-                <div className={styles.resultNameText}>{group.tname}</div>
-                <div className={styles.resultDetailText}></div>
-                <div className={styles.scoreText}>{group.score}</div>
-              </div>
-            ) : (
-              <div className={styles.longBox}>
-                <div className={styles.numberBox}>{newRank}</div>
-                <div className={styles.resultNameText}>{group.tname}</div>
-                <div className={styles.resultDetailText}></div>
-                <div className={styles.scoreText}>{group.score}</div>
-              </div>
-            )}
-          </>
-        );
-      })}
+          if (index != 0 && groups[index].count === groups[index - 1].count) {
+            rank[index] = rank[index - 1];
+            newRank = rank[index - 1];
+          }
+          return (
+            <>
+              {newRank == 1 ? (
+                <div className={styles.firstLongBox}>
+                  <div className={styles.firstNumberBox}>{newRank}</div>
+                  <div className={styles.resultNameText}>{group.tname}</div>
+                  <div className={styles.resultDetailText}>{group.detail}</div>
+                  <div className={styles.scoreText}>{group.count}</div>
+                </div>
+              ) : (
+                <div className={styles.longBox}>
+                  <div className={styles.numberBox}>{newRank}</div>
+                  <div className={styles.resultNameText}>{group.tname}</div>
+                  <div className={styles.resultDetailText}>{group.detail}</div>
+                  <div className={styles.scoreText}>{group.count}</div>
+                </div>
+              )}
+            </>
+          );
+        })}
     </div>
   );
 }
