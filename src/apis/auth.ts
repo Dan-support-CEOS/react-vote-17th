@@ -35,7 +35,6 @@ export const checkEmail = async (email: string) => {
   return response.data;
 };
 
-/*
 export const logout = async (accessToken: string) => {
   const response = await client.post('/auth/signout/', {
     headers: {
@@ -44,7 +43,6 @@ export const logout = async (accessToken: string) => {
   });
   return response.data;
 };
-*/
 
 export const tokenRefresh = async () => {
   const response = await client.post('/auth/token/refresh/');

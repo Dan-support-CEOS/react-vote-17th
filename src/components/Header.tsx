@@ -1,24 +1,24 @@
 import styles from '../styles/Header.module.css';
 import CEOSLogo from '../../public/img/ceos-logo.svg';
 import Link from 'next/link';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { userState } from '@/store/store';
-//import { useMutation } from '@tanstack/react-query';
-//import { logout } from '@/apis/auth';
+import { useMutation } from '@tanstack/react-query';
+import { logout } from '@/apis/auth';
 import { useRouter } from 'next/router';
 
 export default function Header() {
-  const [user, setUser] = useRecoilState(userState); //전역 상태 userState
+  const user = useRecoilValue(userState); //전역 상태 userState
   const { team, part, name, accessToken } = user; //구조분해할당
 
   const router = useRouter();
 
-  /*
   //api 로직 가져와서 사용하기
   const logoutMutation = useMutation(logout, {
     onSuccess: data => {
       console.log(data);
       alert('로그아웃이 완료됐어요!');
+      router.push('/');
     },
     onError: error => {
       console.log(error);
@@ -26,15 +26,8 @@ export default function Header() {
     },
   });
 
-  const handleLogout = (e: any) => {
-    logoutMutation.mutate(accessToken);
-  };
-  */
-
   const handleLogout = () => {
-    setUser({ ...user, accessToken: '', name: '', team: '', part: '' });
-    alert('로그아웃이 완료되었습니다!');
-    router.push('/');
+    logoutMutation.mutate(accessToken);
   };
 
   return (
