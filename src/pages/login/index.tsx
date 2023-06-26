@@ -3,6 +3,7 @@ import { useMutation } from '@tanstack/react-query'; //getQueryClient 추가하�
 import { useRecoilState } from 'recoil';
 import { login } from '@/apis/auth';
 import { userState } from '@/store/store';
+import { useRouter } from 'next/router';
 import styles from '../../styles/LoginPage.module.css';
 
 export default function LoginPage() {
@@ -10,6 +11,8 @@ export default function LoginPage() {
 
   const [id, setId] = useState<string>('');
   const [pwd, setPwd] = useState<string>('');
+
+  const router = useRouter();
 
   //api 로직 가져와서 사용하기
   const loginMutation = useMutation(login, {
@@ -24,9 +27,12 @@ export default function LoginPage() {
       }); //전역 상태 userState에, 백엔드로부터 받은 'name,team,part,accessToken..' 저장!
       //console.log(user);
       alert('로그인이 완료됐어요!');
+      router.push('/');
     },
     onError: error => {
       alert('로그인에 실패했어요.');
+      setId('');
+      setPwd('');
     },
   });
 
