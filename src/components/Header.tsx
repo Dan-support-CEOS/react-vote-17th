@@ -9,7 +9,7 @@ import { useRouter } from 'next/router';
 
 export default function Header() {
   const user = useRecoilValue(userState); //전역 상태 userState
-  const { team, part, name, accessToken } = user; //구조분해할당
+  const { team: userTeam, part: userPart, name: userName, accessToken } = user; //구조분해할당
 
   const router = useRouter();
 
@@ -47,7 +47,7 @@ export default function Header() {
       ) : (
         <>
           <p>
-            {team} {part === 'fe' ? 'FE' : 'BE'} {name}
+            {userTeam} {userPart === 'fe' ? 'FE' : 'BE'} {userName}
           </p>
           <button onClick={handleLogout}>로그아웃</button>
         </>
