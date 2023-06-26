@@ -119,10 +119,10 @@ export default function RegisterPage() {
   const handleChangeId = (e: React.ChangeEvent<HTMLInputElement>) => {
     const currentId = e.target.value;
     setId(currentId);
-    const idRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/; //나중에 id 형식 바꾸기!
+    const idRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,25}$/; //나중에 id 형식 바꾸기!
 
     if (!idRegex.test(currentId)) {
-      setIdMsg('숫자+영문자+특수문자 조합으로 8자리 이상 입력해주세요');
+      setIdMsg('숫자+영문자 조합으로 6자리 이상 입력해주세요');
       setIsIdChecked(false);
     } else {
       setIdMsg('올바른 아이디 형식 입니다.');
@@ -180,9 +180,7 @@ export default function RegisterPage() {
 
   return (
     <div className={styles.container}>
-      <form className={styles.form}>
-        {/* onSubmit={handleSubmit} */}
-
+      <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.box}>
           <h3>이름</h3>
           <input
@@ -190,7 +188,6 @@ export default function RegisterPage() {
             type="text"
             value={name}
             onChange={handleChangeName}
-            required
           />
           <p>{nameMsg}</p>
           {/* 나중에, className={isNameChecked ? 'success' : 'error'} 작성해서, 색깔 토글해주기! */}
@@ -204,9 +201,8 @@ export default function RegisterPage() {
               type="text"
               value={id}
               onChange={handleChangeId}
-              required
             />
-            <button>중복 인증</button> {/* onClick={checkDuplicatedId} */}
+            <button onClick={checkDuplicatedId}>중복 인증</button>
           </div>
           <p>{idMsg}</p>
         </div>
@@ -218,7 +214,6 @@ export default function RegisterPage() {
             type="password"
             value={pwd}
             onChange={handleChangePwd}
-            required
           />
           <p>{pwdMsg}</p>
         </div>
@@ -230,7 +225,6 @@ export default function RegisterPage() {
             type="password"
             value={pwdConfirm}
             onChange={handleChangePwdConfirm}
-            required
           />
           <p>{pwdConfirmMsg}</p>
         </div>
@@ -243,9 +237,8 @@ export default function RegisterPage() {
               type="email"
               value={email}
               onChange={handleChangeEmail}
-              required
             />
-            <button>중복 인증</button> {/* onClick={checkDuplicatedEmail} */}
+            <button onClick={checkDuplicatedEmail}>중복 인증</button>
           </div>
           <p>{emailMsg}</p>
         </div>
