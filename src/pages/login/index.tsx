@@ -14,7 +14,15 @@ export default function LoginPage() {
   //api 로직 가져와서 사용하기
   const loginMutation = useMutation(login, {
     onSuccess: data => {
-      setUser(data); //전역 상태 userState에, 백엔드로부터 받은 'name,team,part,accessToken..' 저장!
+      //console.log(data);
+      setUser({
+        ...user,
+        name: data.user.name,
+        part: data.user.part,
+        team: data.user.team,
+        accessToken: data.token.access_token,
+      }); //전역 상태 userState에, 백엔드로부터 받은 'name,team,part,accessToken..' 저장!
+      //console.log(user);
       alert('로그인이 완료됐어요!');
     },
     onError: error => {
