@@ -47,11 +47,11 @@ export default function PartLeaderResultPage() {
         </div>
       </div>
 
-      {/*
-      {partLeaderResult.map((item, idx) => (
-        <div key={idx}>{item}</div>
+      {partLeaderResult?.map((item: any, idx: number) => (
+        <div key={idx}>
+          {item.cname} {item.count}
+        </div>
       ))}
-      */}
     </div>
   );
 }

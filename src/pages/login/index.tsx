@@ -14,7 +14,7 @@ export default function LoginPage() {
   //api 로직 가져와서 사용하기
   const loginMutation = useMutation(login, {
     onSuccess: data => {
-      setUser(data); //전역 상태 userState에, 백엔드로부터 받은 'uid,name,team,part,accessToken..' 저장!
+      setUser(data); //전역 상태 userState에, 백엔드로부터 받은 'name,team,part,accessToken..' 저장!
       alert('로그인이 완료됐어요!');
     },
     onError: error => {
@@ -30,8 +30,7 @@ export default function LoginPage() {
 
   return (
     <div className={styles.loginPage}>
-      <form>
-        {/* onSubmit={handleSubmit} */}
+      <form onSubmit={handleSubmit}>
         <div className={styles.loginBox}>
           <div>
             <div className={styles.loginText}>아이디</div>
