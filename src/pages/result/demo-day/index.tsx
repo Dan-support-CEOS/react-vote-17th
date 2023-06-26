@@ -3,6 +3,13 @@ import styles from '../../../styles/Demo.module.css';
 import Header from '@/components/Header';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
+import { useMutateRefreshing } from '@/hook/use-mutate-refreshing';
+import { mutateRefreshing } from '@/apis/auth';
+import { useEffect } from 'react';
+
+function refreshingHandler() {
+  useMutateRefreshing(mutateRefreshing);
+}
 
 export default function DemoDayResultPage() {
   const [groups, setGroups] = useState<any[]>([]);
@@ -21,9 +28,10 @@ export default function DemoDayResultPage() {
   const rank = [1, 2, 3, 4, 5];
   let newRank;
 
-  groups.sort(function compare(a, b) {
-    return b.score - a.score;
-  });
+  //page 바뀔 때, login refresh
+  useEffect(() => {
+    refreshingHandler();
+  }, []);
 
   return (
     <div className={styles.demoPage}>

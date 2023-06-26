@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const client = axios.create({
-  baseURL: 'https://takgyun.shop/',
+  baseURL: 'https://takgyun.shop',
   withCredentials: true,
 });
 
