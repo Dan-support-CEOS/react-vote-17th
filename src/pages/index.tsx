@@ -1,10 +1,10 @@
 import styles from '@/styles/HomePage.module.css';
-import Link from 'next/link';
 import { userState } from '@/store/store';
 import { useRecoilValue } from 'recoil';
 import { useRouter } from 'next/router';
 import { useMutation } from '@tanstack/react-query';
 import { checkPartLeaderVoteAuthority } from '@/apis/vote';
+import { demoDayAuthority } from '@/apis/vote';
 
 export default function Home() {
   const user = useRecoilValue(userState); //전역 상태 userState
@@ -12,6 +12,7 @@ export default function Home() {
 
   const router = useRouter();
 
+  //파트장
   const checkPartLeaderVoteAuthorityMutation = useMutation(
     checkPartLeaderVoteAuthority,
     {
@@ -29,6 +30,24 @@ export default function Home() {
       checkPartLeaderVoteAuthorityMutation.mutate(accessToken);
     } else {
       alert('로그인 후에 투표 가능합니다.');
+    }
+  };
+
+  //데모데이
+  const useMutationDemoAuthority = useMutation(demoDayAuthority, {
+    onSuccess: data => {
+      router.push('/vote/demo-day');
+    },
+    onError: error => {
+      alert('재투표가 불가합니다');
+    },
+  });
+
+  const handleDemoBtnClick = () => {
+    if (!(accessToken === '')) {
+      useMutationDemoAuthority.mutate(accessToken);
+    } else {
+      alert('로그인 후에 이용가능합니다.');
     }
   };
 
@@ -52,12 +71,15 @@ export default function Home() {
       <hr className={styles.line} />
       <div className={styles.part}>
         <div className={styles.homeText}>데모데이 투표</div>
-        <Link href="/vote/demo-day">
-          <button className={styles.voteBtn}>투표하기</button>
-        </Link>
-        <Link href="/result/demo-day">
-          <button className={styles.resultBtn}>결과보기</button>
-        </Link>
+        <button className={styles.voteBtn} onClick={handleDemoBtnClick}>
+          투표하기
+        </button>
+        <button
+          className={styles.resultBtn}
+          onClick={() => router.push('/result/demo-day')}
+        >
+          결과보기
+        </button>
       </div>
     </div>
   );
