@@ -1,10 +1,9 @@
 .demoPage {
-  height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  padding-top: 100px;
+  margin-top: 100px;
 }
 
 .componentPage {
@@ -160,6 +159,5 @@
   font-size: 23px;
   font-weight: 700;
   color: #ffffff;
-  cursor: pointer;
   margin-top: 50px;
 }

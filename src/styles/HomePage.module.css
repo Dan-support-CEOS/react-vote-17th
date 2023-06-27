@@ -4,16 +4,14 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
-  padding-top: 100px;
 }
 
 .part {
   width: 50%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  margin-top: 100px;
 }
 
 .line {
@@ -22,11 +20,11 @@
   margin-top: 100px;
 }
 
-.homeText {
+.titleText {
   font-size: 26px;
   font-weight: 700;
   color: #454545;
-  margin-bottom: 60px;
+  margin-bottom: 80px;
 }
 
 .voteBtn {
@@ -39,7 +37,6 @@
   font-size: 23px;
   font-weight: 700;
   margin-bottom: 25px;
-  cursor: pointer;
 }
 
 .resultBtn {
@@ -52,5 +49,4 @@
   color: #ffffff;
   font-size: 23px;
   font-weight: 700;
-  cursor: pointer;
 }
