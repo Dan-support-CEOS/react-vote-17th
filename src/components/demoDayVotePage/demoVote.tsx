@@ -83,5 +83,3 @@ export default function demoVote({ groups }: demoVoteProps) {
     </>
   );
 }
-
-//

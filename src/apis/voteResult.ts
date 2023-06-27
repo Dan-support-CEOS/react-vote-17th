@@ -11,5 +11,3 @@ export const getDemoDayResult = async () => {
   const response = await client.get('/votes/teams/result/');
   return response.data;
 };
-
-//
