@@ -182,69 +182,78 @@ export default function RegisterPage() {
     <div className={styles.container}>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.box}>
-          <h3>이름</h3>
+          <div className={styles.title}>이름</div>
           <input
+            className={styles.input}
             placeholder="이름"
             type="text"
             value={name}
             onChange={handleChangeName}
           />
-          <p>{nameMsg}</p>
+          <div className={styles.msg}>{nameMsg}</div>
           {/* 나중에, className={isNameChecked ? 'success' : 'error'} 작성해서, 색깔 토글해주기! */}
         </div>
 
         <div className={styles.box}>
-          <h3>아이디</h3>
+          <div className={styles.title}>아이디</div>
           <div className={styles.idBox}>
             <input
+              className={styles.input}
               placeholder="아이디"
               type="text"
               value={id}
               onChange={handleChangeId}
             />
-            <button onClick={checkDuplicatedId}>중복 인증</button>
+            <button className={styles.checkBtn} onClick={checkDuplicatedId}>
+              중복 인증
+            </button>
           </div>
-          <p>{idMsg}</p>
+          <div className={styles.msg}>{idMsg}</div>
         </div>
 
         <div className={styles.box}>
-          <h3>비밀번호</h3>
+          <div className={styles.title}>비밀번호</div>
           <input
+            className={styles.input}
             placeholder="비밀번호"
             type="password"
             value={pwd}
             onChange={handleChangePwd}
           />
-          <p>{pwdMsg}</p>
+          <div className={styles.msg}>{pwdMsg}</div>
         </div>
 
         <div className={styles.box}>
-          <h3>비밀번호 확인</h3>
+          <div className={styles.title}>비밀번호 확인</div>
           <input
+            className={styles.input}
             placeholder="비밀번호 확인"
             type="password"
             value={pwdConfirm}
             onChange={handleChangePwdConfirm}
           />
-          <p>{pwdConfirmMsg}</p>
+          <div className={styles.msg}>{pwdConfirmMsg}</div>
         </div>
 
         <div className={styles.box}>
-          <h3>이메일</h3>
+          <div className={styles.title}>이메일</div>
           <div className={styles.emailBox}>
             <input
+              className={styles.input}
               placeholder="이메일"
               type="email"
               value={email}
               onChange={handleChangeEmail}
             />
-            <button onClick={checkDuplicatedEmail}>중복 인증</button>
+            <button className={styles.checkBtn} onClick={checkDuplicatedEmail}>
+              중복 인증
+            </button>
           </div>
-          <p>{emailMsg}</p>
+          <div className={styles.msg}>{emailMsg}</div>
         </div>
 
         <div className={styles.box}>
-          <h3>팀명/파트</h3>
+          <div className={styles.title}>팀명/파트</div>
           <select
             onChange={(e: any) => {
               setTeam(e.target.value);
@@ -271,7 +280,9 @@ export default function RegisterPage() {
           </select>
         </div>
 
-        <button type="submit">회원가입</button>
+        <button type="submit" className={styles.registerBtn}>
+          회원가입
+        </button>
       </form>
     </div>
   );
