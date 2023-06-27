@@ -12,8 +12,3 @@ export interface Ingroup {
   detail: string;
   id: number;
 }
-
-export interface ILoginProps {
-  id: string;
-  password: string;
-}
