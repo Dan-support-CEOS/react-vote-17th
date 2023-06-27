@@ -54,7 +54,7 @@ export default function Home() {
   return (
     <div className={styles.homePage}>
       <div className={styles.part}>
-        <div className={styles.homeText}>파트장 투표</div>
+        <div className={styles.titleText}>파트장 투표</div>
         <button
           className={styles.voteBtn}
           onClick={handlePartLeaderVoteBtnClick}
@@ -70,7 +70,7 @@ export default function Home() {
       </div>
       <hr className={styles.line} />
       <div className={styles.part}>
-        <div className={styles.homeText}>데모데이 투표</div>
+        <div className={styles.titleText}>데모데이 투표</div>
         <button className={styles.voteBtn} onClick={handleDemoBtnClick}>
           투표하기
         </button>

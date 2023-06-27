@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Ingroup } from '../../interface/interface';
-import styles from '../styles/Demo.module.css';
+import styles from '../../styles/DemoDayPage.module.css';
 import { useMutation } from '@tanstack/react-query';
 import { demoDayVote } from '@/apis/vote';
 import { useRecoilValue } from 'recoil';

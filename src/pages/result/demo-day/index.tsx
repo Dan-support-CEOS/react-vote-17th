@@ -1,6 +1,5 @@
 import { getDemoDayResult } from '@/apis/voteResult';
-import styles from '../../../styles/Demo.module.css';
-import Header from '@/components/Header';
+import styles from '../../../styles/DemoDayPage.module.css';
 import { useQuery } from '@tanstack/react-query';
 import { useState } from 'react';
 
@@ -23,7 +22,6 @@ export default function DemoDayResultPage() {
 
   return (
     <div className={styles.demoPage}>
-      <Header />
       <div className={styles.titleText}>데모데이 투표결과</div>
       {groups &&
         groups.map((group, index) => {
