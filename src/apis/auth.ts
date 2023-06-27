@@ -1,6 +1,5 @@
 import { headers } from 'next/dist/client/components/headers';
 import client from './client';
-import { ILoginProps, IUser } from '@/interface/interface';
 
 export const register = async (input: any) => {
   const response = await client.post('/auth/signup/', {
@@ -15,7 +14,7 @@ export const register = async (input: any) => {
 };
 
 //login
-export const login = async (input: ILoginProps) => {
+export const login = async (input: any) => {
   const response = await client.post('/auth/signin/', {
     login_id: input.id,
     password: input.password,
@@ -31,11 +30,13 @@ export const mutateRefreshing = async () => {
 };
 
 //logout
-export const logout = async () => {
-  return client.get('/auth/signout/').then(response => {
-    //body가 필요없어서 get으로
-    return response.data;
+export const logout = async (accessToken: string) => {
+  const response = await client.post('/auth/signout/', {
+    headers: {
+      Authorization: `Bearer ${accessToken}`,
+    },
   });
+  return response.data;
 };
 
 //id,email 중복 확인

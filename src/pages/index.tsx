@@ -3,14 +3,14 @@ import Header from '@/components/Header';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useMutation } from '@tanstack/react-query';
-import { demoDayAuthority } from '@/apis/auth';
+import { demoDayAuthority, mutateRefreshing } from '@/apis/auth';
 import { useRecoilValue } from 'recoil';
 import { userState } from '@/store/store';
 
 export default function Home() {
   const router = useRouter();
   const user = useRecoilValue(userState);
-  const token = user.accessToken;
+  const accessToken = user.accessToken;
 
   const useMutationDemoAuthority = useMutation(demoDayAuthority, {
     onSuccess: data => {
@@ -22,8 +22,8 @@ export default function Home() {
   });
 
   const handleDemoBtnClick = () => {
-    if (!(token === '')) {
-      useMutationDemoAuthority.mutate(token);
+    if (!(accessToken === '')) {
+      useMutationDemoAuthority.mutate(accessToken);
     } else {
       alert('로그인 후에 이용가능합니다.');
     }
