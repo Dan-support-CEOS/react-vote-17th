@@ -3,7 +3,7 @@ import Header from '@/components/Header';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useMutation } from '@tanstack/react-query';
-import { demoDayAuthority, mutateRefreshing } from '@/apis/auth';
+import { demoDayAuthority } from '@/apis/vote';
 import { useRecoilValue } from 'recoil';
 import { userState } from '@/store/store';
 

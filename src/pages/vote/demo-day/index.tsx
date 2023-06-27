@@ -1,5 +1,5 @@
 import groupData from '../../../jsons/groupData.json';
-import VoteBox from '../../../components/demoVote';
+import VoteBox from '../../../components/demoDayVotePage/demoVote';
 import styles from '../../../styles/Demo.module.css';
 import Header from '@/components/Header';
 import { useEffect } from 'react';

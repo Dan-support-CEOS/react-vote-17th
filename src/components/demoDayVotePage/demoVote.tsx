@@ -1,8 +1,8 @@
 import { useState } from 'react';
-import { Ingroup } from '../interface/interface';
+import { Ingroup } from '../../interface/interface';
 import styles from '../styles/Demo.module.css';
 import { useMutation } from '@tanstack/react-query';
-import { demoDayVote } from '@/apis/auth';
+import { demoDayVote } from '@/apis/vote';
 import { useRecoilValue } from 'recoil';
 import { userState } from '@/store/store';
 

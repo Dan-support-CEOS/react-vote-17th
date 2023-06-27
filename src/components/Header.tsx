@@ -1,5 +1,5 @@
 import styles from '../styles/Header.module.css';
-import Logo from '../../public/img/Logo.svg';
+import CEOSLogo from '../../public/img/ceos-logo.svg';
 import Link from 'next/link';
 import { useRecoilValue } from 'recoil';
 import { userState } from '@/store/store';
@@ -38,7 +38,7 @@ export default function Header() {
   return (
     <div className={styles.HeaderPage}>
       <Link href="/">
-        <Logo className={styles.logo} />
+        <CEOSLogo className={styles.logo} />
       </Link>
       {accessToken == '' ? (
         <div className={styles.buttons}>

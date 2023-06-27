@@ -4,7 +4,6 @@ import Header from '@/components/Header';
 import { login } from '@/apis/auth';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
-import axios from 'axios';
 import { useRecoilState } from 'recoil';
 import { userState } from '@/store/store';
 
