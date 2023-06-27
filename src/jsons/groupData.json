@@ -1,34 +1,29 @@
 {
   "groups": [
     {
-      "name": "댄서포트",
+      "tname": "댄서포트",
       "detail": "댄서들을 위한 통합 플랫폼",
-      "id": 0,
-      "score": 6
+      "id": 0
     },
     {
-      "name": "Hooking",
+      "tname": "Hooking",
       "detail": "SNS 마케팅 문구 레퍼런스 플랫폼",
-      "id": 1,
-      "score": 3
+      "id": 1
     },
     {
-      "name": "Repick",
+      "tname": "Repick",
       "detail": "2040 남성들을 위한 맞춤형 중고 패션 구독 서비스",
-      "id": 2,
-      "score": 2
+      "id": 2
     },
     {
-      "name": "바리바리",
+      "tname": "바리바리",
       "detail": "SNS 마케팅 문구 레퍼런스 플랫폼",
-      "id": 3,
-      "score": 1
+      "id": 3
     },
     {
-      "name": "TherapEase",
+      "tname": "TherapEase",
       "detail": "심리상담이 원활하게 이루어지기 위한 업무관리 플랫폼",
-      "id": 4,
-      "score": 3
+      "id": 4
     }
   ]
 }
