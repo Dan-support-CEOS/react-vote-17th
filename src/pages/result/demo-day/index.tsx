@@ -1,4 +1,4 @@
-import { getDemoDayResult } from '@/apis/auth';
+import { getDemoDayResult } from '@/apis/voteResult';
 import styles from '../../../styles/Demo.module.css';
 import Header from '@/components/Header';
 import { useQuery } from '@tanstack/react-query';

@@ -14,6 +14,7 @@
   height: auto;
   width: 160px;
   cursor: pointer;
+  user-select: none;
 }
 
 .buttons {
@@ -41,8 +42,6 @@
   font-weight: 400;
   color: #ffffff;
   right: 45px;
-  cursor: pointer;
-  user-select: none;
 }
 
 .loginBtn {
@@ -55,9 +54,7 @@
   font-weight: 400;
   color: #454545;
   right: 45px;
-  cursor: pointer;
   margin-right: 20px;
-  user-select: none;
 }
 
 .logoutBtn {
@@ -70,6 +67,4 @@
   font-weight: 400;
   color: #454545;
   right: 45px;
-  cursor: pointer;
-  user-select: none;
 }

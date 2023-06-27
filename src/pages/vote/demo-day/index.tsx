@@ -3,7 +3,7 @@ import VoteBox from '../../../components/demoDayVotePage/demoVote';
 import styles from '../../../styles/Demo.module.css';
 import Header from '@/components/Header';
 import { useEffect } from 'react';
-import { mutateRefreshing } from '@/apis/auth';
+import { tokenRefresh } from '@/apis/auth';
 import { useMutation } from '@tanstack/react-query';
 import axios from 'axios';
 import { useRouter } from 'next/router';
@@ -15,7 +15,9 @@ export default function DemoDayVotePage() {
   const router = useRouter();
   const [user, setUser] = useRecoilState(userState);
 
-  const useMutateRefreshing = useMutation(mutateRefreshing, {
+  {
+    /*
+  const useMutateRefreshing = useMutation(tokenRefresh, {
     onSuccess: data => {
       setUser({
         ...user,
@@ -35,7 +37,8 @@ export default function DemoDayVotePage() {
 
   useEffect(() => {
     useMutateRefreshing.mutate;
-  }, []);
+  }, []);*/
+  }
 
   return (
     <div className={styles.demoPage}>
