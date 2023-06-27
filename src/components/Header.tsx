@@ -1,13 +1,14 @@
 import styles from '../styles/Header.module.css';
 import CEOSLogo from '../../public/img/ceos-logo.svg';
 import Link from 'next/link';
-import { useRecoilValue } from 'recoil';
+import { useRecoilState, useRecoilValue } from 'recoil';
 import { userState } from '@/store/store';
 import { useMutation } from '@tanstack/react-query';
 import { logout } from '@/apis/auth';
 import { useRouter } from 'next/router';
 
 export default function Header() {
+  const [users, setUsers] = useRecoilState(userState);
   const user = useRecoilValue(userState); //전역 상태 userState
   const {
     team: userTeam,
@@ -22,6 +23,13 @@ export default function Header() {
   const logoutMutation = useMutation(logout, {
     onSuccess: data => {
       console.log(data);
+      setUsers({
+        ...user,
+        name: '',
+        part: '',
+        team: '',
+        accessToken: '',
+      }); //전역 상태 userState에, 백엔드로부터 받은 'name,team,part,accessToken..' 저장!
       alert('로그아웃이 완료됐어요!');
       router.push('/');
     },

@@ -36,7 +36,7 @@ export const checkEmail = async (email: string) => {
 };
 
 export const logout = async (accessToken: string) => {
-  const response = await client.post('/auth/signout/', {
+  const response = await client.get('/auth/signout/', {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
