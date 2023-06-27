@@ -1,7 +1,8 @@
 .container {
-  height: 100vh;
+  /*height: 100vh;*/
 
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 
@@ -11,6 +12,8 @@
 .topBox {
   display: flex;
   align-items: center;
+
+  margin: 100px 0 30px 0;
 }
 
 .partBtn {
@@ -25,4 +28,25 @@
 .title {
   font-size: 27px;
   font-weight: 700;
+
+  margin-left: 10px;
+}
+
+.rankBox {
+  display: flex; /*중요*/
+  flex-direction: column; /*중요*/
+  flex-wrap: wrap; /*중요*/
+
+  width: 500px; /*중요-한 행/열당 개수*/
+  height: 200px; /*중요*/
+
+  padding: 10px;
+  background-color: blue;
+}
+
+.rank {
+  width: 50%; /*중요*/
+  height: 20%; /*중요*/
+
+  background-color: beige;
 }

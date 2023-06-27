@@ -47,11 +47,13 @@ export default function PartLeaderResultPage() {
         </div>
       </div>
 
-      {partLeaderResult?.map((item: any, idx: number) => (
-        <div key={idx}>
-          {item.cname} {item.count}
-        </div>
-      ))}
+      <div className={styles.rankBox}>
+        {partLeaderResult?.map((item: any, idx: number) => (
+          <div className={styles.rank} key={idx}>
+            {idx + 1} {item.cname} {item.count}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
