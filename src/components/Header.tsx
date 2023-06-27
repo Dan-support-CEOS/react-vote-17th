@@ -9,12 +9,7 @@ import { useRouter } from 'next/router';
 
 export default function Header() {
   const user = useRecoilValue(userState); //전역 상태 userState
-  const {
-    team: userTeam,
-    part: userPart,
-    name: userName,
-    accessToken: accessToken,
-  } = user; //구조분해할당
+  const { team: userTeam, part: userPart, name: userName, accessToken } = user; //구조분해할당
 
   const router = useRouter();
 
@@ -40,7 +35,7 @@ export default function Header() {
       <Link href="/">
         <CEOSLogo className={styles.logo} />
       </Link>
-      {accessToken == '' ? (
+      {accessToken === '' ? (
         <div className={styles.buttons}>
           <Link href="/login">
             <button className={styles.loginBtn}>로그인</button>

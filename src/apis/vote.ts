@@ -17,7 +17,7 @@ export const votePartLeader = async (info: any) => {
   return response.data;
 };
 
-//파트장 투표 중복 제한
+//파트장 투표 중복 제한(권한 확인)
 export const checkPartLeaderVoteAuthority = async (accessToken: string) => {
   const response = await client.post('/votes/candidates/authority/', {
     headers: {
@@ -43,7 +43,7 @@ export const demoDayVote = async (info: any) => {
   return response.data;
 };
 
-//데모데이 투표 중복 제한
+//데모데이 투표 중복 제한(권한 확인)
 export const demoDayAuthority = async (accessToken: any) => {
   const response = await client.post('/votes/teams/authority/', {
     headers: {
