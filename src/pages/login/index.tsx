@@ -5,14 +5,25 @@ import { login } from '@/apis/auth';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/router';
 import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { userState } from '@/store/store';
 
 export default function LoginPage() {
   const [id, setId] = useState<string>('');
   const [pwd, setPwd] = useState<string>('');
+  const [user, setUser] = useRecoilState(userState);
+
   const router = useRouter();
 
   const useMutateLogin = useMutation(login, {
     onSuccess: data => {
+      setUser({
+        ...user,
+        name: data.user.name,
+        team: data.user.team,
+        part: data.user.part,
+        accessToken: data.token.access_token,
+      }); //전역 상태 userState에, 백엔드로부터 받은 'name,team,part,accessToken..' 저장!
       axios.defaults.headers.common['Authorization'] =
         'Bearer' + data.accessToken; //accessToken을 받으면 바로 axios header의 default값으로 넣어줘서 api 호출 시마다 유효성을 체크하는 방식이기 때문에 성공시에 header에 담아줌
       router.push('/');

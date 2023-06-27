@@ -12,12 +12,3 @@ export const userState = atom<IUser>({
     refreshToken: '', //이건 cookie에만 저장해도 되지 않나?!
   },
 });
-
-export const accessTokenSelector = selector({
-  key: 'accessTokenSelector',
-  get: ({ get }) => {
-    const user = get(userState);
-    const accessToken = user.accessToken;
-    return accessToken;
-  },
-});

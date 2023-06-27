@@ -4,7 +4,7 @@ import styles from '../styles/Demo.module.css';
 import { useMutation } from '@tanstack/react-query';
 import { demoDayVote } from '@/apis/auth';
 import { useRecoilValue } from 'recoil';
-import { accessTokenSelector } from '@/store/store';
+import { userState } from '@/store/store';
 
 interface demoVoteProps {
   groups: Ingroup[];
@@ -15,16 +15,18 @@ export default function demoVote({ groups }: demoVoteProps) {
   const secondGroup = groups.filter(group => group.id > 1);
   const [clickIndex, setClickIndex] = useState(5);
   const [votedTeam, setVotedTeam] = useState('');
-  const token = useRecoilValue(accessTokenSelector);
 
-  //버튼 클릭했을 때
+  const user = useRecoilValue(userState);
+  const token = user.accessToken;
+
+  //팀 클릭했을 때
   const onClick = (group: Ingroup) => {
     setClickIndex(group.id);
     setVotedTeam(group.tname);
   };
 
   //click유무에 따라 alert
-  const onVote = useMutation(demoDayVote, {
+  const voteMutationDemo = useMutation(demoDayVote, {
     onSuccess: data => {
       alert('투표되었습니다');
     },
@@ -73,7 +75,7 @@ export default function demoVote({ groups }: demoVoteProps) {
       <button
         className={styles.voteBtn}
         onClick={() => {
-          onVote.mutate({ team: votedTeam, token: token });
+          voteMutationDemo.mutate({ tname: votedTeam, accessToken: token });
         }}
       >
         투표하기

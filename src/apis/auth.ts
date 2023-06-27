@@ -15,11 +15,11 @@ export const register = async (input: any) => {
 };
 
 //login
-export const login = async (props: ILoginProps) => {
+export const login = async (input: ILoginProps) => {
   const url = '/auth/signin/';
-  const response = await client.post<IUser>(url, {
-    id: props.id,
-    password: props.password,
+  const response = await client.post(url, {
+    login_id: input.id,
+    password: input.password,
   });
   return response.data;
 };
@@ -61,11 +61,11 @@ export const demoDayVote = async (info: any) => {
   const response = await client.post(
     '/votes/teams/',
     {
-      tname: info.team,
+      tname: info.tname,
     },
     {
       headers: {
-        Authorization: `Bearer ${info.token}`,
+        Authorization: `Bearer ${info.accessToken}`,
       },
     },
   );
