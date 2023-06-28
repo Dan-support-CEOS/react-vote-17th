@@ -19,12 +19,14 @@ export default function PartSelectPage() {
 
   return (
     <div className={styles.container}>
-      <button name="fe" onClick={handleBtnClick}>
-        FRONT-END 파트장 투표
-      </button>
-      <button name="be" onClick={handleBtnClick}>
-        BACK-END 파트장 투표
-      </button>
+      <div className={styles.circles}>
+        <button className={styles.circle} name="fe" onClick={handleBtnClick}>
+          FRONT-END 파트장 투표
+        </button>
+        <button className={styles.circle} name="be" onClick={handleBtnClick}>
+          BACK-END 파트장 투표
+        </button>
+      </div>
     </div>
   );
 }
