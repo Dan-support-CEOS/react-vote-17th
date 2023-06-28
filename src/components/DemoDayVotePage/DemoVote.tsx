@@ -11,11 +11,12 @@ interface demoVoteProps {
   groups: Ingroup[];
 }
 
-export default function demoVote({ groups }: demoVoteProps) {
+export default function DemoVote({ groups }: demoVoteProps) {
   const firstGroup = groups.filter(group => group.id < 2);
   const secondGroup = groups.filter(group => group.id > 1);
   const [clickIndex, setClickIndex] = useState(5);
   const [votedTeam, setVotedTeam] = useState('');
+
   const router = useRouter();
 
   const user = useRecoilValue(userState);
@@ -46,8 +47,8 @@ export default function demoVote({ groups }: demoVoteProps) {
   function Box({ groups }: demoVoteProps) {
     return (
       <>
-        {groups.map(group => (
-          <div onClick={() => onClick(group)}>
+        {groups.map((group, idx) => (
+          <div key={idx} onClick={() => onClick(group)}>
             {clickIndex === group.id ? (
               <div className={styles.clickedBox}>
                 <div className={styles.textBox}>
