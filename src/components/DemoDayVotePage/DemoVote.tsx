@@ -5,6 +5,7 @@ import { useMutation } from '@tanstack/react-query';
 import { demoDayVote } from '@/apis/vote';
 import { useRecoilValue } from 'recoil';
 import { userState } from '@/store/store';
+import { useRouter } from 'next/router';
 
 interface demoVoteProps {
   groups: Ingroup[];
@@ -15,6 +16,7 @@ export default function demoVote({ groups }: demoVoteProps) {
   const secondGroup = groups.filter(group => group.id > 1);
   const [clickIndex, setClickIndex] = useState(5);
   const [votedTeam, setVotedTeam] = useState('');
+  const router = useRouter();
 
   const user = useRecoilValue(userState);
   const token = user.accessToken;
@@ -29,9 +31,14 @@ export default function demoVote({ groups }: demoVoteProps) {
   const voteMutationDemo = useMutation(demoDayVote, {
     onSuccess: data => {
       alert('투표되었습니다');
+      router.push('/result/demo-day');
     },
     onError: data => {
-      alert('투표할 팀을 선택해주세요');
+      if (clickIndex == 5) {
+        alert('투표할 팀을 선택해주세요');
+      } else {
+        alert('자신의 팀은 투표가 불가합니다');
+      }
     },
   });
 

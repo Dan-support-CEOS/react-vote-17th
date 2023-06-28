@@ -19,7 +19,7 @@ export const votePartLeader = async (info: any) => {
 
 //파트장 투표 중복 제한
 export const checkPartLeaderVoteAuthority = async (accessToken: string) => {
-  const response = await client.post('/votes/candidates/authority/', {
+  const response = await client.get('/votes/candidates/authority/', {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -44,10 +44,10 @@ export const demoDayVote = async (info: any) => {
 };
 
 //데모데이 투표 중복 제한
-export const demoDayAuthority = async (accessToken: any) => {
-  const response = await client.post('/votes/teams/authority/', {
+export const demoDayAuthority = async (info: any) => {
+  const response = await client.get('/votes/teams/authority/', {
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${info.accessToken}`,
     },
   });
   return response.data;

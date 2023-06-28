@@ -26,11 +26,11 @@ export default function LoginPage() {
         accessToken: data.token.access_token,
       }); //전역 상태 userState에, 백엔드로부터 받은 'name,team,part,accessToken..' 저장!
       //console.log(user);
-      alert('로그인이 완료됐어요!');
+      alert('로그인에 성공하였습니다');
       router.push('/'); //나중에 '/'로 바꾸기!
     },
     onError: error => {
-      alert('로그인에 실패했어요.');
+      alert('로그인에 실패하였습니다');
       setId('');
       setPwd('');
     },

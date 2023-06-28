@@ -36,7 +36,7 @@ export const checkEmail = async (email: string) => {
 };
 
 export const logout = async (accessToken: string) => {
-  const response = await client.post('/auth/signout/', {
+  const response = await client.get('/auth/signout/', {
     headers: {
       Authorization: `Bearer ${accessToken}`,
     },
@@ -44,7 +44,7 @@ export const logout = async (accessToken: string) => {
   return response.data;
 };
 
-export const tokenRefresh = async () => {
-  const response = await client.post('/auth/token/refresh/');
+export const tokenRefresh = async (accessToken: string) => {
+  const response = await client.get('/auth/token/refresh/');
   return response.data;
 };

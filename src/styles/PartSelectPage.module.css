@@ -7,3 +7,22 @@
 
   padding-top: 100px;
 }
+
+.circles {
+  display: flex;
+  justify-content: space-between;
+  width: 800px;
+}
+
+.circle {
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  border-radius: 100%;
+  border: 3px solid #00499e;
+  background: none;
+  font-size: 27px;
+  font-weight: 700;
+  color: #454545;
+  padding: 90px;
+}
