@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { useMutation } from '@tanstack/react-query'; //getQueryClient 추가하기
 import { register, checkId, checkEmail } from '@/apis/auth';
+import { useRouter } from 'next/router';
 import styles from '../../styles/RegisterPage.module.css';
 
 export default function RegisterPage() {
@@ -29,10 +30,13 @@ export default function RegisterPage() {
   const [isIdValid, setIsIdValid] = useState<boolean>(false);
   const [isEmailValid, setIsEmailValid] = useState<boolean>(false);
 
+  const router = useRouter();
+
   //api 로직들 가져와서 사용하기
   const registerMutation = useMutation(register, {
     onSuccess: data => {
       alert('회원가입이 완료됐어요!');
+      router.push('/login');
     },
     onError: error => {
       alert('회원가입에 실패했어요.');
@@ -47,6 +51,8 @@ export default function RegisterPage() {
     onError: error => {
       alert('이미 사용 중인 아이디입니다');
       setIsIdValid(false);
+      setId('');
+      setIdMsg('');
     },
   });
 
@@ -58,13 +64,26 @@ export default function RegisterPage() {
     onError: error => {
       alert('이미 사용 중인 이메일입니다');
       setIsEmailValid(false);
+      setEmail('');
+      setEmailMsg('');
     },
   });
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (
+    if (!isIdValid) {
+      alert('아이디 중복 확인 절차가 필요합니다.');
+      return;
+    }
+    if (!isEmailValid) {
+      alert('이메일 중복 확인 절차가 필요합니다.');
+      return;
+    }
+    if (!(isIdValid && isEmailValid)) {
+      alert('아이디와 이메일 중복 확인 절차가 필요합니다.');
+      return;
+    } else if (
       !(
         isNameChecked &&
         isIdChecked &&
@@ -75,7 +94,7 @@ export default function RegisterPage() {
         isEmailValid
       )
     ) {
-      alert('다 제대로 입력해야 회원가입 됩니다잉'); //나중에 멘트 수정
+      alert('모든 형식을 알맞게 입력해주세요!'); //나중에 멘트 수정
       return;
     }
 
@@ -190,7 +209,11 @@ export default function RegisterPage() {
             value={name}
             onChange={handleChangeName}
           />
-          <div className={styles.msg}>{nameMsg}</div>
+          <div className={styles.msgBox}>
+            <div className={isNameChecked ? styles.checkMsg : styles.errorMsg}>
+              {nameMsg}
+            </div>
+          </div>
           {/* 나중에, className={isNameChecked ? 'success' : 'error'} 작성해서, 색깔 토글해주기! */}
         </div>
 
@@ -205,10 +228,14 @@ export default function RegisterPage() {
               onChange={handleChangeId}
             />
             <button className={styles.checkBtn} onClick={checkDuplicatedId}>
-              중복 인증
+              중복 확인
             </button>
           </div>
-          <div className={styles.msg}>{idMsg}</div>
+          <div className={styles.msgBox}>
+            <div className={isIdChecked ? styles.checkMsg : styles.errorMsg}>
+              {idMsg}
+            </div>
+          </div>
         </div>
 
         <div className={styles.box}>
@@ -220,7 +247,11 @@ export default function RegisterPage() {
             value={pwd}
             onChange={handleChangePwd}
           />
-          <div className={styles.msg}>{pwdMsg}</div>
+          <div className={styles.msgBox}>
+            <div className={isPwdChecked ? styles.checkMsg : styles.errorMsg}>
+              {pwdMsg}
+            </div>
+          </div>
         </div>
 
         <div className={styles.box}>
@@ -232,7 +263,15 @@ export default function RegisterPage() {
             value={pwdConfirm}
             onChange={handleChangePwdConfirm}
           />
-          <div className={styles.msg}>{pwdConfirmMsg}</div>
+          <div className={styles.msgBox}>
+            <div
+              className={
+                isPwdConfirmChecked ? styles.checkMsg : styles.errorMsg
+              }
+            >
+              {pwdConfirmMsg}
+            </div>
+          </div>
         </div>
 
         <div className={styles.box}>
@@ -246,15 +285,20 @@ export default function RegisterPage() {
               onChange={handleChangeEmail}
             />
             <button className={styles.checkBtn} onClick={checkDuplicatedEmail}>
-              중복 인증
+              중복 확인
             </button>
           </div>
-          <div className={styles.msg}>{emailMsg}</div>
+          <div className={styles.msgBox}>
+            <div className={isEmailChecked ? styles.checkMsg : styles.errorMsg}>
+              {emailMsg}
+            </div>
+          </div>
         </div>
 
         <div className={styles.box}>
           <div className={styles.title}>팀명/파트</div>
           <select
+            className={styles.select}
             onChange={(e: any) => {
               setTeam(e.target.value);
               console.log(team);
@@ -267,6 +311,7 @@ export default function RegisterPage() {
             ))}
           </select>
           <select
+            className={styles.select}
             onChange={(e: any) => {
               setPart(e.target.value);
               console.log(part);

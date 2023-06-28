@@ -19,6 +19,7 @@ export default function PartLeaderVotePage() {
   const votePartLeaderMutation = useMutation(votePartLeader, {
     onSuccess: data => {
       alert('투표가 완료됐어요!');
+      router.push('/result/part-leader');
     },
     onError: error => {
       alert('투표에 실패했어요.');
