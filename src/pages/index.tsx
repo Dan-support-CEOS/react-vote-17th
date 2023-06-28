@@ -20,6 +20,7 @@ export default function Home() {
         router.push('/vote/part-select');
       },
       onError: error => {
+        console.log(error);
         alert('재투표가 불가합니다');
       },
     },

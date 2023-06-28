@@ -27,7 +27,7 @@ export default function LoginPage() {
       }); //전역 상태 userState에, 백엔드로부터 받은 'name,team,part,accessToken..' 저장!
       //console.log(user);
       alert('로그인에 성공하였습니다');
-      router.push('/'); //나중에 '/'로 바꾸기!
+      router.push('/');
     },
     onError: error => {
       alert('로그인에 실패하였습니다');

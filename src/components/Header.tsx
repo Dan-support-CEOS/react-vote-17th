@@ -1,21 +1,15 @@
 import styles from '../styles/Header.module.css';
 import CEOSLogo from '../../public/img/ceos-logo.svg';
 import Link from 'next/link';
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState } from 'recoil';
 import { userState } from '@/store/store';
 import { useMutation } from '@tanstack/react-query';
 import { logout } from '@/apis/auth';
 import { useRouter } from 'next/router';
 
 export default function Header() {
-  const [users, setUsers] = useRecoilState(userState);
-  const user = useRecoilValue(userState); //전역 상태 userState
-  const {
-    team: userTeam,
-    part: userPart,
-    name: userName,
-    accessToken: accessToken,
-  } = user; //구조분해할당
+  const [user, setUser] = useRecoilState(userState); //전역 상태 userState
+  const { team: userTeam, part: userPart, name: userName, accessToken } = user; //구조분해할당
 
   const router = useRouter();
 
@@ -23,13 +17,7 @@ export default function Header() {
   const logoutMutation = useMutation(logout, {
     onSuccess: data => {
       console.log(data);
-      setUsers({
-        ...user,
-        name: '',
-        part: '',
-        team: '',
-        accessToken: '',
-      }); //전역 상태 userState에, 백엔드로부터 받은 'name,team,part,accessToken..' 저장!
+      setUser({ ...user, accessToken: '', name: '', team: '', part: '' });
       alert('로그아웃이 완료됐어요!');
       router.push('/');
     },
@@ -48,7 +36,7 @@ export default function Header() {
       <Link href="/">
         <CEOSLogo className={styles.logo} />
       </Link>
-      {accessToken == '' ? (
+      {accessToken === '' ? (
         <div className={styles.buttons}>
           <Link href="/login">
             <button className={styles.loginBtn}>로그인</button>

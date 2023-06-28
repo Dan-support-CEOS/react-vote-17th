@@ -29,14 +29,14 @@ export default function PartLeaderResultPage() {
     <div className={styles.container}>
       <div className={styles.topBox}>
         <button
-          className={styles.partBtn}
+          className={part === 'fe' ? styles.clickedPartBtn : styles.partBtn}
           name="fe"
           onClick={handlePartBtnClick}
         >
           FE
         </button>
         <button
-          className={styles.partBtn}
+          className={part === 'be' ? styles.clickedPartBtn : styles.partBtn}
           name="be"
           onClick={handlePartBtnClick}
         >
@@ -47,11 +47,17 @@ export default function PartLeaderResultPage() {
         </div>
       </div>
 
-      {partLeaderResult?.map((item: any, idx: number) => (
-        <div key={idx}>
-          {item.cname} {item.count}
-        </div>
-      ))}
+      <div className={styles.rankBox}>
+        {partLeaderResult?.map((item: any, idx: number) => (
+          <div className={styles.rank} key={idx}>
+            <div className={styles.leftBox}>
+              <div className={styles.rankNumber}>{idx + 1}</div>{' '}
+              <div className={styles.name}>{item.cname}</div>
+            </div>
+            <div className={styles.count}>{item.count}</div>
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

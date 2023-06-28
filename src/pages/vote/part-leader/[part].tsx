@@ -19,6 +19,7 @@ export default function PartLeaderVotePage() {
   const votePartLeaderMutation = useMutation(votePartLeader, {
     onSuccess: data => {
       alert('투표가 완료됐어요!');
+      router.push('/result/part-leader');
     },
     onError: error => {
       alert('투표에 실패했어요.');
@@ -77,7 +78,11 @@ export default function PartLeaderVotePage() {
       <div className={styles.candidatesBox}>
         {Info.candidates.map((candidate, idx) => (
           <button
-            className={styles.candidateBtn}
+            className={
+              selectedCandidate === candidate
+                ? styles.selectedCandidateBtn
+                : styles.candidateBtn
+            }
             key={idx}
             onClick={handleCandidateClick}
           >
