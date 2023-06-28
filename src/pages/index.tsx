@@ -46,9 +46,9 @@ export default function Home() {
 
   const handleDemoBtnClick = () => {
     if (!(accessToken === '')) {
-      useMutationDemoAuthority.mutate(accessToken);
+      useMutationDemoAuthority.mutate({ accessToken: accessToken });
     } else {
-      alert('로그인 후에 투표 가능합니다.');
+      alert('로그인 후에 투표 가능합니다');
     }
   };
 
