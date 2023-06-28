@@ -78,7 +78,11 @@ export default function PartLeaderVotePage() {
       <div className={styles.candidatesBox}>
         {Info.candidates.map((candidate, idx) => (
           <button
-            className={styles.candidateBtn}
+            className={
+              selectedCandidate === candidate
+                ? styles.selectedCandidateBtn
+                : styles.candidateBtn
+            }
             key={idx}
             onClick={handleCandidateClick}
           >
