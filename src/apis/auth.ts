@@ -45,6 +45,6 @@ export const logout = async (accessToken: string) => {
 };
 
 export const tokenRefresh = async () => {
-  const response = await client.post('/auth/token/refresh/');
+  const response = await client.get('/auth/token/refresh/');
   return response.data;
 };

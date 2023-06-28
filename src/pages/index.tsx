@@ -21,7 +21,7 @@ export default function Home() {
       },
       onError: error => {
         console.log(error);
-        alert('재투표 불가합니다.');
+        alert('재투표가 불가합니다');
       },
     },
   );
@@ -30,7 +30,7 @@ export default function Home() {
     if (!(accessToken === '')) {
       checkPartLeaderVoteAuthorityMutation.mutate(accessToken);
     } else {
-      alert('로그인 후에 투표 가능합니다.');
+      alert('로그인 후에 투표 가능합니다');
     }
   };
 
@@ -48,7 +48,7 @@ export default function Home() {
     if (!(accessToken === '')) {
       useMutationDemoAuthority.mutate(accessToken);
     } else {
-      alert('로그인 후에 이용가능합니다.');
+      alert('로그인 후에 투표 가능합니다.');
     }
   };
 

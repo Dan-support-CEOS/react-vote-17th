@@ -44,10 +44,10 @@ export const demoDayVote = async (info: any) => {
 };
 
 //데모데이 투표 중복 제한(권한 확인)
-export const demoDayAuthority = async (accessToken: any) => {
+export const demoDayAuthority = async (info: any) => {
   const response = await client.get('/votes/teams/authority/', {
     headers: {
-      Authorization: `Bearer ${accessToken}`,
+      Authorization: `Bearer ${info.accessToken}`,
     },
   });
   return response.data;

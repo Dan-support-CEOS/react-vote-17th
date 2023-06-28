@@ -39,7 +39,7 @@ export default function RegisterPage() {
       router.push('/login');
     },
     onError: error => {
-      alert('회원가입에 실패했어요.');
+      alert('알맞은 이메일 형식을 입력해주세요!'); //임시
     },
   });
 
