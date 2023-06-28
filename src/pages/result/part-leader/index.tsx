@@ -29,14 +29,14 @@ export default function PartLeaderResultPage() {
     <div className={styles.container}>
       <div className={styles.topBox}>
         <button
-          className={styles.partBtn}
+          className={part === 'fe' ? styles.clickedPartBtn : styles.partBtn}
           name="fe"
           onClick={handlePartBtnClick}
         >
           FE
         </button>
         <button
-          className={styles.partBtn}
+          className={part === 'be' ? styles.clickedPartBtn : styles.partBtn}
           name="be"
           onClick={handlePartBtnClick}
         >

@@ -16,6 +16,19 @@
   margin: 70px 0 30px 0;
 }
 
+.clickedPartBtn {
+  color: white;
+  background-color: #00499e;
+  font-size: 23px;
+  font-weight: 700;
+  border: 3px solid #00499e;
+  border-radius: 10px;
+  width: 50px;
+  height: 40px;
+
+  margin: 0 3px;
+}
+
 .partBtn {
   font-size: 23px;
   font-weight: 700;

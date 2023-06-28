@@ -81,6 +81,11 @@
   margin-right: 15px;
 }
 
+.registerBtnBox {
+  display: flex;
+  justify-content: center;
+}
+
 .registerBtn {
   background: #00499e;
   height: 48px;

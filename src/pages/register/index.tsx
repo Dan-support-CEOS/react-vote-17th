@@ -323,9 +323,11 @@ export default function RegisterPage() {
           </select>
         </div>
 
-        <button type="submit" className={styles.registerBtn}>
-          회원가입
-        </button>
+        <div className={styles.registerBtnBox}>
+          <button type="submit" className={styles.registerBtn}>
+            회원가입
+          </button>
+        </div>
       </form>
     </div>
   );
