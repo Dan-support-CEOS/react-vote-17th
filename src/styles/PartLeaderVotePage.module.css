@@ -38,6 +38,11 @@
   margin: 5px;
 }
 
+.candidateBtn:hover {
+  border: 3px solid #454545;
+  cursor: pointer;
+}
+
 .selectedCandidateBtn {
   background-color: #f4f4f4;
   font-size: 27px;

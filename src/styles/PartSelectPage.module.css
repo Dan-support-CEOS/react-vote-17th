@@ -26,3 +26,8 @@
   color: #454545;
   padding: 90px;
 }
+
+.circle:hover {
+  background: #00499e;
+  color: white;
+}
