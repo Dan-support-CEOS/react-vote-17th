@@ -5,8 +5,19 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   padding-top: 100px;
+}
+
+.text {
+  width: 643px;
+  font-size: 30px;
+  font-weight: 400;
+  color: white;
+  display: flex;
+  justify-content: left;
+  margin-bottom: 10px;
 }
 
 .loginBox {

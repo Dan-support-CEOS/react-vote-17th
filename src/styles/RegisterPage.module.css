@@ -6,15 +6,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
 
   padding-top: 120px;
+}
+
+.text {
+  width: 600px;
+  font-size: 30px;
+  font-weight: 400;
+  color: white;
+  display: flex;
+  justify-content: left;
+  margin-bottom: 10px;
 }
 
 .form {
   background-color: white;
   width: 600px;
-  height: 650px;
-  padding: 20px 30px;
+  height: 700px;
+  padding: 30px 30px;
 }
 
 .box {
@@ -95,5 +106,5 @@
   font-size: 17px;
   color: #ffffff;
 
-  margin-top: 20px;
+  margin-top: 40px;
 }

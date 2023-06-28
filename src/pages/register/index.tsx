@@ -197,6 +197,7 @@ export default function RegisterPage() {
 
   return (
     <div className={styles.container}>
+      <div className={styles.text}>Create Account</div>
       <form className={styles.form} onSubmit={handleSubmit}>
         <div className={styles.box}>
           <div className={styles.title}>이름</div>
