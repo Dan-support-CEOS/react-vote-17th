@@ -278,7 +278,7 @@ export default function RegisterPage() {
           <div className={styles.emailBox}>
             <input
               className={styles.input}
-              placeholder="이메일"
+              placeholder="ex) ceos@ceos.com"
               type="email"
               value={email}
               onChange={handleChangeEmail}

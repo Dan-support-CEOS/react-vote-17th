@@ -23,8 +23,8 @@
 
 .form {
   background-color: white;
-  width: 600px;
-  height: 700px;
+  width: 620px;
+  height: 730px;
   padding: 30px 30px;
 }
 
@@ -33,19 +33,21 @@
 }
 
 .title {
-  font-size: 15px;
-  font-weight: 500;
-  margin-bottom: 5px;
+  font-size: 17px;
+  font-weight: 400;
+  margin-bottom: 6px;
+  color: #454545;
 }
 
 .input {
-  height: 40px;
+  height: 45px;
   width: 450px;
-  border-radius: 14px;
+  border-radius: 15px;
   border: 1px solid #454545;
   outline: none;
-  font-size: 14px;
-  color: #454545;
+  font-size: 15px;
+  color: #c0c0c0;
+  padding: 7px;
 }
 
 .msgBox {
@@ -72,23 +74,23 @@
 .checkBtn {
   /*중복확인 버튼*/
   background: #00499e;
-  height: 38px;
-  width: 80px;
+  height: 45px;
+  width: 100px;
   border-radius: 15px;
   border: none;
-  font-size: 14px;
+  font-size: 15px;
   color: #ffffff;
   margin-left: 10px;
 }
 
 .select {
-  width: 140px;
-  height: 38px;
+  width: 218px;
+  height: 45px;
   font-size: 16px;
   font-weight: 400;
   text-align: center;
-  border-radius: 10px;
-
+  border-radius: 15px;
+  border: 1px solid #454545;
   margin-right: 15px;
 }
 
@@ -99,12 +101,11 @@
 
 .registerBtn {
   background: #00499e;
-  height: 48px;
-  width: 130px;
-  border-radius: 15px;
+  height: 58px;
+  width: 160px;
+  border-radius: 20px;
   border: none;
-  font-size: 17px;
+  font-size: 20px;
   color: #ffffff;
-
-  margin-top: 40px;
+  margin-top: 25px;
 }
