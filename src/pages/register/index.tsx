@@ -72,16 +72,14 @@ export default function RegisterPage() {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    if (!isIdValid) {
+    if (!isIdValid && !isEmailValid) {
+      alert('아이디와 이메일 중복 확인 절차가 필요합니다.');
+      return;
+    } else if (!isIdValid) {
       alert('아이디 중복 확인 절차가 필요합니다.');
       return;
-    }
-    if (!isEmailValid) {
+    } else if (!isEmailValid) {
       alert('이메일 중복 확인 절차가 필요합니다.');
-      return;
-    }
-    if (!(isIdValid && isEmailValid)) {
-      alert('아이디와 이메일 중복 확인 절차가 필요합니다.');
       return;
     } else if (
       !(
@@ -89,9 +87,7 @@ export default function RegisterPage() {
         isIdChecked &&
         isPwdChecked &&
         isPwdConfirmChecked &&
-        isEmailChecked &&
-        isIdValid &&
-        isEmailValid
+        isEmailChecked
       )
     ) {
       alert('모든 형식을 알맞게 입력해주세요!'); //나중에 멘트 수정
@@ -138,6 +134,7 @@ export default function RegisterPage() {
   const handleChangeId = (e: React.ChangeEvent<HTMLInputElement>) => {
     const currentId = e.target.value;
     setId(currentId);
+    setIsIdValid(false);
     const idRegex = /^(?=.*[a-zA-Z])(?=.*[0-9]).{6,25}$/; //나중에 id 형식 바꾸기!
 
     if (!idRegex.test(currentId)) {
@@ -179,6 +176,7 @@ export default function RegisterPage() {
   const handleChangeEmail = (e: React.ChangeEvent<HTMLInputElement>) => {
     const currentEmail = e.target.value;
     setEmail(currentEmail);
+    setIsEmailValid(false);
     const emailRegex =
       /^[A-Za-z0-9_]+[A-Za-z0-9]*[@]{1}[A-Za-z0-9]+[A-Za-z0-9]*[.]{1}[A-Za-z]{1,3}$/;
 
