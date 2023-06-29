@@ -49,9 +49,15 @@ export default function PartLeaderResultPage() {
 
       <div className={styles.rankBox}>
         {partLeaderResult?.map((item: any, idx: number) => (
-          <div className={styles.rank} key={idx}>
+          <div className={idx === 0 ? styles.firstRank : styles.rank} key={idx}>
             <div className={styles.leftBox}>
-              <div className={styles.rankNumber}>{idx + 1}</div>{' '}
+              <div
+                className={
+                  idx === 0 ? styles.firstRankNumber : styles.rankNumber
+                }
+              >
+                {idx + 1}
+              </div>
               <div className={styles.name}>{item.cname}</div>
             </div>
             <div className={styles.count}>{item.count}</div>

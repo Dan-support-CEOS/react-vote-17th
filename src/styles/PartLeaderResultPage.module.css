@@ -81,6 +81,25 @@
   background-color: white;
 }
 
+.firstRank {
+  height: 16%;
+  width: 280px;
+
+  margin: 5px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 10px;
+
+  border: 4px solid #00499e;
+  border-radius: 10px;
+  background-color: #00499e;
+
+  color: white;
+}
+
 .leftBox {
   /*순위,이름 같이 있는*/
   display: flex;
@@ -99,6 +118,22 @@
   font-size: 27px;
   font-weight: 700;
   color: #ffffff;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.firstRankNumber {
+  margin-right: 20px;
+
+  background: white;
+  height: 55px;
+  width: 55px;
+  border-radius: 10px;
+  font-size: 27px;
+  font-weight: 700;
+  color: black;
 
   display: flex;
   justify-content: center;
