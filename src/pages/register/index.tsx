@@ -45,12 +45,12 @@ export default function RegisterPage() {
 
   const checkIdMutation = useMutation(checkId, {
     onSuccess: data => {
-      alert('사용 가능한 아이디입니다');
       setIsIdValid(true);
+      alert('사용 가능한 아이디입니다');
     },
     onError: error => {
-      alert('이미 사용 중인 아이디입니다');
       setIsIdValid(false);
+      alert('이미 사용 중인 아이디입니다');
       setId('');
       setIdMsg('');
     },
@@ -58,12 +58,12 @@ export default function RegisterPage() {
 
   const checkEmailMutation = useMutation(checkEmail, {
     onSuccess: data => {
-      alert('사용 가능한 이메일입니다');
       setIsEmailValid(true);
+      alert('사용 가능한 이메일입니다');
     },
     onError: error => {
-      alert('이미 사용 중인 이메일입니다');
       setIsEmailValid(false);
+      alert('이미 사용 중인 이메일입니다');
       setEmail('');
       setEmailMsg('');
     },
@@ -226,9 +226,18 @@ export default function RegisterPage() {
               value={id}
               onChange={handleChangeId}
             />
-            <button className={styles.checkBtn} onClick={checkDuplicatedId}>
-              중복 확인
-            </button>
+            {!isIdValid ? (
+              <button className={styles.checkBtn} onClick={checkDuplicatedId}>
+                중복 확인
+              </button>
+            ) : (
+              <button
+                className={styles.availableBtn}
+                onClick={checkDuplicatedId}
+              >
+                사용 가능
+              </button>
+            )}
           </div>
           <div className={styles.msgBox}>
             <div className={isIdChecked ? styles.checkMsg : styles.errorMsg}>
@@ -283,9 +292,21 @@ export default function RegisterPage() {
               value={email}
               onChange={handleChangeEmail}
             />
-            <button className={styles.checkBtn} onClick={checkDuplicatedEmail}>
-              중복 확인
-            </button>
+            {!isEmailValid ? (
+              <button
+                className={styles.checkBtn}
+                onClick={checkDuplicatedEmail}
+              >
+                중복 확인
+              </button>
+            ) : (
+              <button
+                className={styles.availableBtn}
+                onClick={checkDuplicatedEmail}
+              >
+                사용 가능
+              </button>
+            )}
           </div>
           <div className={styles.msgBox}>
             <div className={isEmailChecked ? styles.checkMsg : styles.errorMsg}>
