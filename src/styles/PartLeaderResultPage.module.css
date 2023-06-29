@@ -26,6 +26,8 @@
   height: 40px;
 
   margin: 0 3px;
+
+  transition: all 150ms ease-out;
 }
 
 .partBtn {
@@ -37,6 +39,8 @@
   height: 40px;
 
   margin: 0 3px;
+
+  transition: all 150ms ease-out;
 }
 
 .title {

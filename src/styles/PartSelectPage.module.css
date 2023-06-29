@@ -25,6 +25,8 @@
   font-weight: 700;
   color: #454545;
   padding: 90px;
+
+  transition: all 200ms ease-out;
 }
 
 .circle:hover {
