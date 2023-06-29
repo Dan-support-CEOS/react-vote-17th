@@ -66,6 +66,7 @@
 .rank {
   /*width: 30%;*/
   height: 16%;
+  width: 280px;
 
   margin: 5px;
 
@@ -85,7 +86,7 @@
   display: flex;
   align-items: center;
 
-  margin-right: 60px;
+  margin-right: 40px;
 }
 
 .rankNumber {
