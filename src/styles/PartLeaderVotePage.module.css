@@ -36,11 +36,12 @@
   height: 60px;
 
   margin: 5px;
+
+  transition: all 200ms ease-out;
 }
 
 .candidateBtn:hover {
   border: 3px solid #454545;
-  cursor: pointer;
 }
 
 .selectedCandidateBtn {
