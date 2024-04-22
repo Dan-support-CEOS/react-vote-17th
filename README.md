@@ -17,11 +17,12 @@
 
 #### 2. 로그인
 <img width="831" alt="image" src="https://github.com/Dan-support-CEOS/react-vote-17th/assets/88028826/d296f0fc-c7f5-4a5b-ae4d-02a0025beb7e"> <br>
-- 아이디 혹은 비밀번호가 틀렸을 시에는 에러를 반환합니다.
+- 비밀번호가 잘못되었거나 존재하지 않는 사용자인 경우 에러 메세지를 보여줍니다.
 
 #### 3. 메인 페이지
 <img width="887" alt="image" src="https://github.com/Dan-support-CEOS/react-vote-17th/assets/88028826/7af994a6-7e32-43b2-8ac7-13a2c250bbd5"> <br>
 - 투표에 참여하기 위해서는 회원가입 및 로그인이 필요합니다. 로그인하지 않은 사용자는 투표 페이지에 접근 불가능합니다.
+- 투표는 한번만 가능합니다. 재투표는 불가능합니다.
 
 #### 4. 파트장 투표 및 결과 페이지
 <img width="721" alt="image" src="https://github.com/Dan-support-CEOS/react-vote-17th/assets/88028826/0469a360-e42a-4cd8-bb17-7a9d1728eb51"> <br>
